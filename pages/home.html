@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Page</title>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            body{
+                margin:0;
+                font-family: Arial,sans-serif;
+                background-color:#c4c3da;
+            }
+            header{
+                background-color:#1555d1;
+                color:white;
+                text-align:center;
+                padding:12px;
+            }
+            header h2{
+                margin:0;
+                font-size:20px;
+            }
+            nav{
+                background-color:#55d61c;
+                padding:10px;
+                text-align:center;
+            }
+            nav a{
+                color:#222;
+                text-decoration:none;
+                margin:0 20px;
+                font-weight:bold;
+            }
+            nav a:hover{
+                color:white;
+            }
+            .welcome{
+                display:block;
+                width:55%;
+                margin:20px auto;
+                text-align:center;
+                background-color:white;
+                padding:10px;
+                border-radius:10px;
+            }
+            .welcome h3{
+                color:#555;
+                margin:0;
+                padding:10px;
+            }
+            .welcome p{
+                color:#555;
+            }
+            .welcome img{
+                width: 80%;
+                height: 280px;
+                object-fit: cover;
+                border-radius:5px;
+            }
+            .rooms{
+                display:flex;
+                justify-content:center;
+                gap:50px;
+                margin-top:30px;
+            }
+            .room-card{
+                width:200px;
+                text-align: center;
+                background-color:white;
+            }
+            .room-title{
+                background-color:#f5a900;
+                color:#222;
+                padding:18px 10px;
+                font-weight:bold;
+            }
+            .room-card h2{
+                background-color:white;
+                margin:0;
+                padding:10px;
+            }
+            .next-button{
+                text-align:center;
+                margin:35px;
+            }
+            .next-button button{
+                background-color:#1684d8;
+                color:white;
+                border:none;
+                padding:12px 45px;
+                border-radius:25px;
+                font-size:17px;
+                cursor:pointer;
+            }
+            .next-button button:hover{
+                background-color:#0d5fa3;
+            }
+            /* Phone Screen */
+
+@media (max-width: 600px) {
+
+    header {
+        height: auto;
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    nav {
+        padding: 10px;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px;
+    }
+
+    .welcome {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .cards {
+        width: 90%;
+        margin: auto;
+
+        display: block;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
+
+}
+        </style>
+    </head>
+    <body>
+            <header>
+                <h2><b><i>ROYAL HOTEL</i></b></h2>
+            </header>
+            <nav>
+                <a href="home.html"><b>Home</b></a> |
+                <a href="booking.html"><b>Room Booking</b></a> |
+                <a href="confirmation.html"><b>confirmation</b></a> |
+                <a href="payment.html"><b>Payment</b></a> |
+                <a href="contact.html"><b>Booking History</b></a> |
+                <a href="logout.html">Logout</a> |
+            </nav>
+                <section class="welcome">
+                <h3>Welcome To Royal Hotel</h3>
+                <p>Book your stay with comfort and luxury</p>
+                <img src="images/hotel.jpg" alt="Royal Hotel">
+                </section> 
+                <section class="rooms">
+                    
+                    <div class="room-card">
+                        <div class="room-title">TOTAL ROOMS</div>
+                        <h2>120</h2>
+                    </div>
+                    <div class="room-card">
+                        <div class="room-title">AVAILABLE ROOMS</div>
+                       <h2>75</h2>
+                    </div>
+                    <div class="room-card">
+                        <div class="room-title">BOOKED ROOMS</div>
+                        <h2>45</h2>
+                    </div>
+
+                </section>   
+                 <div class="next-button">
+                    <a href="booking.html">
+                        <button>Next</button>
+                    </a>
+                 </div>
+    </body>
+</html>

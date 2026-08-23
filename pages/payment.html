@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Payment</title>
+
+   <style>
+       /* =========================
+   BASIC
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background-color: #eef4ff;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    height: 60px;
+
+    background-color: #1239d8;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 40px;
+}
+
+header h2 {
+    margin: 0;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    background-color: #20d900;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 40px;
+
+    padding: 12px;
+}
+
+nav a {
+    color: black;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: white;
+}
+
+
+/* =========================
+   MAIN PAYMENT BOX
+========================= */
+
+.payment-box {
+    width: 90%;
+
+    max-width: 1000px;
+
+    margin: 30px auto;
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px #aaa;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.heading {
+    text-align: center;
+
+    border-bottom: 1px solid #ddd;
+
+    padding-bottom: 20px;
+}
+
+.heading h1 {
+    color: #1239d8;
+
+    margin: 5px;
+}
+
+.heading p {
+    color: #555;
+}
+
+
+/* =========================
+   PAYMENT TITLE
+========================= */
+
+.payment-title {
+    color: #1239d8;
+
+    margin-top: 25px;
+}
+
+
+/* =========================
+   PAYMENT OPTIONS
+========================= */
+
+.payment-options {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    margin-top: 20px;
+}
+
+
+.payment-option {
+    border: 1px solid #ccc;
+
+    padding: 18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.payment-option:hover {
+    border-color: #1239d8;
+
+    background-color: #f2f6ff;
+}
+
+
+.payment-option input {
+    width: 18px;
+
+    height: 18px;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-label {
+    display: block;
+
+    margin-top: 25px;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+}
+
+
+.payment-input {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   AMOUNT
+========================= */
+
+.amount {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 25px;
+
+    padding: 18px;
+
+    background-color: #eef4ff;
+
+    border-radius: 8px;
+
+    font-size: 18px;
+}
+
+
+.amount strong {
+    color: #1239d8;
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   PAY BUTTON
+========================= */
+
+.pay-button {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background-color: #1645e8;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.pay-button:hover {
+    background-color: #0d32b5;
+}
+
+
+/* =========================
+   SECURE MESSAGE
+========================= */
+
+.secure {
+    text-align: center;
+
+    color: #555;
+
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   PHONE SCREEN
+========================= */
+
+@media (max-width: 600px) {
+
+
+    /* Header */
+
+    header {
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+
+    header h2 {
+        font-size: 20px;
+    }
+
+
+    /* Navigation */
+
+    nav {
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+
+    nav a {
+        margin: 5px;
+    }
+
+
+    /* Payment Box */
+
+    .payment-box {
+        width: 94%;
+
+        margin: 20px auto;
+
+        padding: 20px;
+    }
+
+
+    /* Payment Options */
+
+    .payment-options {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+
+    .payment-option {
+        padding: 15px;
+
+        font-size: 15px;
+    }
+
+
+    /* Heading */
+
+    .heading h1 {
+        font-size: 25px;
+    }
+
+
+    /* Amount */
+
+    .amount {
+        font-size: 16px;
+    }
+
+
+    .amount strong {
+        font-size: 18px;
+    }
+
+
+    /* Button */
+
+    .pay-button {
+        font-size: 16px;
+    }
+
+}
+   </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <h2> ROYAL HOTEL</h2>
+
+   </header>
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <a href="home.html">HOME</a>
+
+        <a href="booking.html">BOOKING</a>
+
+        <a href="confirmation.html">
+            CONFIRMATION
+        </a>
+
+        <a href="payment.html">
+            PAYMENT
+        </a>
+
+        <a href="#"> CONTACT</a>
+
+        <a href="login.html">
+             LOGOUT
+        </a>
+
+    </nav>
+
+
+    <!-- Main Payment Box -->
+
+    <div class="payment-box">
+
+
+        <!-- Heading -->
+
+        <div class="heading">
+
+            <h1>Payment</h1>
+
+            <p>
+                Complete your payment to confirm your booking
+            </p>
+
+        </div>
+
+
+        <!-- Form -->
+
+        <form action="payment-success.html">
+
+
+            <h2 class="payment-title">
+                Payment Details
+            </h2>
+
+
+            <h3>
+                Select Payment Method
+            </h3>
+
+
+            <!-- Payment Options -->
+
+            <div class="payment-options">
+
+
+                <label class="payment-option">
+
+                    <input type="radio"
+                           name="payment"
+                           value="upi"
+                           required>
+
+                    <span>UPI</span>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input type="radio"
+                           name="payment"
+                           value="card">
+
+                    <span> Credit / Debit Card</span>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input type="radio"
+                           name="payment"
+                           value="cash">
+
+                    <span> Cash on Arrival</span>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input type="radio"
+                           name="payment"
+                           value="netbanking">
+
+                    <span> Net Banking</span>
+
+                </label>
+
+
+            </div>
+
+
+            <!-- UPI ID -->
+
+            <label class="input-label">
+                UPI ID
+            </label>
+
+            <input type="text"
+                   class="payment-input"
+                   placeholder="Enter your UPI ID">
+
+
+            <!-- Amount -->
+
+            <div class="amount">
+
+                <span>Total Amount</span>
+
+                <strong>₹4,500.00</strong>
+
+            </div>
+
+
+            <!-- Pay Button -->
+
+            <button type="submit"
+                    class="pay-button">
+
+                 Pay Now ₹4,500.00
+
+            </button>
+
+
+            <p class="secure">
+                 Your payment is secure
+            </p>
+
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

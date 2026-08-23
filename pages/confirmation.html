@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Confirmation</title>
+
+    <style>
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background-color: #eef2ff;
+}
+header {
+    height: 40px;
+
+    background-color: #1748d1;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 40px;
+}
+
+header h2 {
+    margin: 0;
+}
+
+nav {
+    background-color: #43d51b;
+
+    text-align: center;
+
+    padding: 12px;
+}
+
+nav a {
+    color: black;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    margin: 0 18px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.main-box {
+    width: 85%;
+
+    max-width: 1100px;
+
+    margin: 40px auto;
+
+    padding: 30px;
+
+    background-color: #fffdf5;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px gray;
+
+    display: flex;
+
+    gap: 50px;
+
+    box-sizing: border-box;
+}
+
+.left-side {
+    width: 45%;
+
+    text-align: center;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+}
+
+.check {
+    width: 70px;
+
+    height: 70px;
+
+    margin: auto;
+
+    background-color: #20b878;
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 45px;
+
+    line-height: 70px;
+}
+
+.left-side h1 {
+    color: #168c62;
+}
+
+.left-side p {
+    color: #555;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+button {
+    width: 75%;
+
+    padding: 12px;
+
+    margin: 15px auto;
+
+    display: block;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background-color: #168bd5;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+
+.home-btn {
+    background-color: #3949e8;
+}
+.details {
+    width: 45%;
+
+    border: 1px solid #9aa7e8;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+}
+
+.details h2 {
+    text-align: center;
+
+    background-color: #f5b000;
+
+    padding: 12px;
+
+    margin-top: 0;
+
+    border-radius: 5px;
+}
+
+.detail-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 14px 8px;
+
+    border-bottom: 1px solid #ddd;
+
+    min-height: 20px;
+
+    gap: 20px;
+}
+
+
+.detail-row span:first-child {
+    font-weight: bold;
+
+    color: #444;
+}
+
+
+.detail-row span:last-child {
+    color: #5968a8;
+
+    text-align: right;
+}
+
+
+/* PHONE RESPONSIVE DESIGN */
+
+@media (max-width: 600px) {
+
+
+    /* Header */
+
+    header {
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+
+    header h2 {
+        font-size: 20px;
+    }
+
+
+    /* Navigation */
+
+    nav {
+        padding: 10px;
+    }
+
+
+    nav a {
+        display: block;
+
+        margin: 10px;
+    }
+
+
+    /* Main Box */
+
+    .main-box {
+        width: 92%;
+
+        margin: 20px auto;
+
+        padding: 15px;
+
+        display: block;
+    }
+
+
+    /* Left Side */
+
+    .left-side {
+        width: 100%;
+
+        padding: 15px;
+    }
+
+
+    /* Tick */
+
+    .check {
+        width: 60px;
+
+        height: 60px;
+
+        font-size: 38px;
+
+        line-height: 60px;
+    }
+
+
+    .left-side h1 {
+        font-size: 24px;
+    }
+
+
+    /* Buttons */
+
+    button {
+        width: 90%;
+    }
+
+
+    /* Details */
+
+    .details {
+        width: 100%;
+
+        margin-top: 25px;
+
+        padding: 15px;
+    }
+
+
+    /* Detail Rows */
+
+    .detail-row {
+        flex-direction: column;
+
+        gap: 5px;
+
+        padding: 12px 5px;
+    }
+
+
+    .detail-row span:last-child {
+        text-align: left;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <h2> ROYAL HOTEL</h2>
+
+    </header>
+    <nav>
+
+        <a href="home.html">HOME</a>
+
+        <a href="booking.html">BOOKING</a>
+
+        <a href="confirmation.html">CONFIRMATION</a>
+
+        <a href="payment.html"></a>PAYMENT</a>
+
+        <a href="#">CONTACT</a>
+
+        <a href="login.html">LOGOUT</a>
+
+    </nav>
+
+
+
+    <div class="main-box">
+
+
+        <!-- Left Side -->
+        <div class="left-side">
+
+            <div class="check">✓</div>
+
+            <h1>Booking Confirmed!</h1>
+
+            <p>
+                Your room has been successfully booked.
+            </p>
+
+            <p>
+                Please proceed to payment
+                to confirm your booking.
+            </p>
+
+
+            <button onclick="location.href='payment.html'">
+                   Proceed to Payment
+            </button>
+
+
+            <button class="home-btn"
+                onclick="location.href='home.html'">
+
+                    Back to Home
+
+            </button>
+
+        </div>
+
+
+        <!-- Right Side -->
+        <div class="details">
+
+            <h2>Booking Details</h2>
+
+
+            <div class="detail-row">
+
+                <span>Booking ID</span>
+
+                <span id="booking-id"></span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span>Customer Name</span>
+
+                <span id="customer-name"></span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span>Room Type</span>
+
+                <span id="room-type"></span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span>Room Number</span>
+
+                <span id="room-number"></span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span>Check-in Date</span>
+
+                <span id="check-in"></span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span>Check-out Date</span>
+
+                <span id="check-out"></span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span>Number of Guests</span>
+
+                <span id="guests"></span>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <span>Total Amount</span>
+
+                <span id="amount"></span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
