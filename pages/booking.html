@@ -1,268 +1,716 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Room booking
-        </title>
-         <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <style>
-            body {
-                 margin: 0;
-                 font-family: Arial,sans-serif;
-                 background-color:#eef2ff;
-            }
+<head>
+
+    <title>Room Booking</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef2ff;
+        }
+
+        /* Header */
+
+        header {
+            background-color: #1748d1;
+            color: white;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-style: italic;
+        }
+
+
+        /* Navigation */
+
+        nav {
+            background-color: #43d51b;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #222;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 20px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+
+        /* Page Title */
+
+        h2 {
+            text-align: center;
+            color: #222;
+            margin: 25px;
+        }
+
+
+        /* Booking Box */
+
+        .booking-box {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            width: 90%;
+            margin: auto;
+        }
+
+
+        /* Booking Form */
+
+        .booking-form {
+            width: 550px;
+            background-color: #fffbea;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px gray;
+            box-sizing: border-box;
+        }
+
+
+        .booking-form label {
+            display: inline-block;
+            width: 200px;
+            margin: 10px 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+
+        .booking-form input,
+        .booking-form select {
+
+            width: 290px;
+
+            padding: 10px;
+
+            border: 1px solid #cccccc;
+
+            border-radius: 4px;
+
+            box-sizing: border-box;
+        }
+
+
+        /* Buttons */
+
+        .buttons {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+
+        .book-btn,
+        .reset-btn {
+
+            padding: 12px 25px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            margin: 0 20px;
+        }
+
+
+        .book-btn {
+
+            background-color: #168bd5;
+
+            color: white;
+        }
+
+
+        .reset-btn {
+
+            background-color: #e1e5ed;
+
+            color: #31558c;
+        }
+
+
+        .book-btn:hover {
+
+            background-color: #0c6ca9;
+        }
+
+
+        /* Room Image */
+
+        .room-image {
+
+            width: 550px;
+
+            text-align: center;
+        }
+
+
+        .room-image img {
+
+            width: 100%;
+
+            height: 375px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+        }
+
+
+        .room-image p {
+
+            background-color: #dff5e4;
+
+            padding: 15px;
+
+            border-radius: 25px;
+
+            color: #222;
+
+            margin-top: 35px;
+        }
+
+
+        /* Amount */
+
+        #amount {
+
+            display: none;
+
+            background-color: #dff5e4;
+
+            padding: 12px;
+
+            margin-top: 15px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            font-weight: bold;
+
+            color: #1748d1;
+        }
+
+
+        /* Phone Screen */
+
+        @media (max-width: 600px) {
+
             header {
-              background-color: #1748d1;
-              color: white;
-              height: 40px;
-             display: flex;
-             align-items: center;
-             justify-content: space-between;
-             padding: 0 40px;
-            }
 
-            header h1 {
-              margin: 0;
-              font-size: 24px;
-              font-style: italic;
-            }
+                height: auto;
 
-            .user {
-               font-weight: bold;
-            }
+                padding: 15px;
 
-            nav {
-                background-color: #43d51b;
-                padding: 12px;
+                flex-direction: column;
+
+                gap: 10px;
+
                 text-align: center;
             }
 
+
+            nav {
+
+                padding: 10px;
+            }
+
+
             nav a {
-                color: #222;
-                text-decoration: none;
-                font-weight: bold;
-                margin: 0 20px;
+
+                display: block;
+
+                margin: 10px;
             }
 
-            nav a:hover {
-               color: white;
-            }
-            h2{
-                text-align:center;
-            }
-
-            .page-title {
-              text-align: center;
-              color: #222;
-              margin: 25px;
-            }
 
             .booking-box {
-                display: flex;
-                justify-content: center;
-                gap: 50px;
 
-                width: 90%;
+                width: 92%;
+
+                display: block;
+
                 margin: auto;
             }
+
+
             .booking-form {
-               width: 550px;
-               background-color: #fffbea;
-               padding: 30px;
-               border-radius: 12px;
-               box-shadow: 0 5px 15px gray;
+
+                width: 100%;
+
+                padding: 20px;
+
+                box-sizing: border-box;
             }
+
+
             .booking-form label {
-                display: inline-block;
-                width: 200px;
-                margin: 15px 0;
-                font-size: 16px;
-                font-weight: bold;
+
+                display: block;
+
+                width: 100%;
+
+                margin: 12px 0 5px;
             }
+
 
             .booking-form input,
             .booking-form select {
-                width: 290px;
-                padding: 10px;
-                border: 1px solid #cccccc;
-                border-radius: 4px;
-                box-sizing:border-box;
+
+                width: 100%;
             }
-            .buttons {
-                text-align: center;
+
+
+            .room-image {
+
+                width: 100%;
+
                 margin-top: 25px;
             }
 
+
+            .room-image img {
+
+                width: 100%;
+
+                height: auto;
+            }
+
+
             .book-btn,
             .reset-btn {
-                padding: 12px 25px;
-                border: none;
-                border-radius: 5px;
-                font-size: 15px;
-                cursor: pointer;
-                margin: 0 20px;
+
+                width: 90%;
+
+                margin: 10px auto;
             }
-           .book-btn {
-                 background-color: #168bd5;
-                 color: white;
-            }
-            .reset-btn {
-                  background-color: #e1e5ed;
-                  color: #31558c;
-            }
-            .book-btn:hover {
-                background-color: #0c6ca9;
-            }
-            .room-image {
-               width: 550px;
-               text-align: center;
-            }
-            .room-image img {
-               width: 100%;
-               height: 375px;
-               object-fit: cover;
-               border-radius: 10px;
-            }
-            .room-image p {
-               background-color: #dff5e4;
-               padding: 15px;
-               border-radius: 25px;
-               color: #222;
-               margin-top: 35px;
-            }
-            /* Phone Screen */
 
-@media (max-width: 600px) {
+        }
 
-    header {
-        height: auto;
-        padding: 15px;
+    </style>
 
-        flex-direction: column;
-
-        gap: 10px;
-
-        text-align: center;
-    }
+</head>
 
 
-    nav {
-        padding: 10px;
-    }
+<body>
 
 
-    nav a {
-        display: block;
+    <!-- Header -->
 
-        margin: 10px;
-    }
+    <header>
 
-
-    .booking-container {
-        width: 92%;
-
-        display: block;
-
-        margin: auto;
-    }
-
-
-    .booking-form {
-        width: 100%;
-
-        box-sizing: border-box;
-
-        padding: 20px;
-    }
-
-
-    .booking-form label {
-        display: block;
-
-        width: 100%;
-
-        margin: 12px 0 5px;
-    }
-
-
-    .booking-form input,
-    .booking-form select {
-        width: 100%;
-
-        box-sizing: border-box;
-    }
-
-
-    .room-image {
-        width: 100%;
-
-        margin-top: 25px;
-    }
-
-
-    .room-image img {
-        width: 100%;
-
-        height: auto;
-    }
-
-
-    .book-btn,
-    .reset-btn {
-        width: 90%;
-
-        margin: 10px auto;
-    }
-
-}
-        </style>
-    </head>
-    <body>
-        <header>
         <h1>ROYAL HOTEL</h1>
-        </header>
-        <nav>
-                <a href="home.html"><b>Home</b></a> |
-                <a href="booking.html"><b>Room Booking</b></a> |
-                <a href="confirmation.html"><b>Confirmation</b></a> |
-                <a href="payment.html"><b>Payment</b></a> |
-                <a href="contact.html"><b>Booking History</b></a> |
-                <a href="logout.html">Logout</a> |
-            </nav>
-            <h2>ROOM BOOKING</h2>
-                <div class="booking-box">
-                   <div class="booing-form">
 
-                        <form action="confirmation.html">
-                             <label>Customer Name:</label>
-                             <input type="text" required><br><br><br>
-                             <label>Phone Number:</label>
-                             <input type="tel" required><br><br><br>
-                             <label>Room Type:</label>
-                             <select>
-                                 <option>Single Bed Room</option>
-                                 <option>Double Bed Room</option>
-                                 <option>trible Bed Room</option>
-                             </select><br><br><br>
-                             <label>Chech in Date:</label>
-                             <input type="date" required><br><br><br>
-                             <label>Check out Date:</label>
-                             <input type="date" required><br><br><br>
-                             <label>Number of Guests:</label>
-                             <input type="number" required><br><br><br>
-                             <div class="button">
-                                  <button class="book-btn">Book Room</button>
-                                  <button class="reset-btn" type="reset">Reset</button>
-                             </div>  
-                         </form>
-                    </div>
-                    <div class=""room-image">
-                    <img src="images/room.jpg" alt="hotel room">
-                    <p><b>Note:</b>Please fill all details</p>
-                    </div>    
-                    </div>
+    </header>
 
-    </body>
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <a href="home.html">
+            <b>Home</b>
+        </a> |
+
+        <a href="booking.html">
+            <b>Room Booking</b>
+        </a> |
+
+        <a href="confirmation.html">
+            <b>Confirmation</b>
+        </a> |
+
+        <a href="payment.html">
+            <b>Payment</b>
+        </a> |
+
+        <a href="bookinghistory.html">
+            <b>history</b>
+        </a> |
+
+        <a href="contact.html">
+            <b>contact us</b>
+        </a> |
+
+        <a href="logout.html">
+            <b>Logout</b>
+        </a>
+
+    </nav>
+
+
+    <h2>ROOM BOOKING</h2>
+
+
+    <div class="booking-box">
+
+
+        <!-- Booking Form -->
+
+        <div class="booking-form">
+
+
+            <form onsubmit="bookRoom(event)">
+
+
+                <label for="customerName">
+                    Customer Name:
+                </label>
+
+                <input type="text"
+                       id="customerName"
+                       placeholder="Enter customer name"
+                       required>
+
+                <br><br>
+
+
+                <label for="phoneNumber">
+                    Phone Number:
+                </label>
+
+                <input type="tel"
+                       id="phoneNumber"
+                       placeholder="Enter phone number"
+                       required>
+
+                <br><br>
+
+
+                <label for="roomType">
+                    Room Type:
+                </label>
+
+                <select id="roomType"
+                        required
+                        onchange="showAmount()">
+
+                    <option value="">
+                        Select Room
+                    </option>
+
+                    <option value="Single Bed Room">
+                        Single Bed Room - ₹2000/day
+                    </option>
+
+                    <option value="Double Bed Room">
+                        Double Bed Room - ₹3000/day
+                    </option>
+
+                    <option value="Triple Bed Room">
+                        Triple Bed Room - ₹4000/day
+                    </option>
+
+                </select>
+
+                <br><br>
+
+
+                <label for="checkIn">
+                    Check-in Date:
+                </label>
+
+                <input type="date"
+                       id="checkIn"
+                       required>
+
+                <br><br>
+
+
+                <label for="checkOut">
+                    Check-out Date:
+                </label>
+
+                <input type="date"
+                       id="checkOut"
+                       required>
+
+                <br><br>
+
+
+                <label for="guests">
+                    Number of Guests:
+                </label>
+
+                <input type="number"
+                       id="guests"
+                       min="1"
+                       placeholder="Enter guests"
+                       required>
+
+                <br><br>
+
+
+                <!-- Amount Display -->
+
+                <div id="amount">
+                    Total Amount: ₹0
+                </div>
+
+
+                <!-- Buttons -->
+
+                <div class="buttons">
+
+                    <button class="book-btn"
+                            type="submit">
+
+                        Book Room
+
+                    </button>
+
+
+                    <button class="reset-btn"
+                            type="reset">
+
+                        Reset
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+        <!-- Room Image -->
+
+        <div class="room-image">
+
+            <img src="images/room.jpg"
+                 alt="Hotel Room">
+
+            <p>
+                <b>Note:</b>
+                Please fill all details
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+
+        /* Show Room Rate */
+
+        function showAmount() {
+
+
+            let roomType =
+                document.getElementById("roomType").value;
+
+
+            let rate = 0;
+
+
+            if (roomType === "Single Bed Room") {
+
+                rate = 2000;
+
+            }
+
+            else if (roomType === "Double Bed Room") {
+
+                rate = 3000;
+
+            }
+
+            else if (roomType === "Triple Bed Room") {
+
+                rate = 4000;
+
+            }
+
+
+            if (rate > 0) {
+
+                document.getElementById("amount").style.display =
+                    "block";
+
+                document.getElementById("amount").innerText =
+                    "Room Rate: ₹" + rate + " / Day";
+
+            }
+
+            else {
+
+                document.getElementById("amount").style.display =
+                    "none";
+
+            }
+
+        }
+
+
+        /* Book Room */
+
+        function bookRoom(event) {
+
+            event.preventDefault();
+
+
+            let customerName =
+                document.getElementById("customerName").value;
+
+
+            let phoneNumber =
+                document.getElementById("phoneNumber").value;
+
+
+            let roomType =
+                document.getElementById("roomType").value;
+
+
+            let checkIn =
+                document.getElementById("checkIn").value;
+
+
+            let checkOut =
+                document.getElementById("checkOut").value;
+
+
+            let guests =
+                document.getElementById("guests").value;
+
+
+            /* Room Rate */
+
+            let roomRate = 0;
+
+
+            if (roomType === "Single Bed Room") {
+
+                roomRate = 2000;
+
+            }
+
+            else if (roomType === "Double Bed Room") {
+
+                roomRate = 3000;
+
+            }
+
+            else if (roomType === "Triple Bed Room") {
+
+                roomRate = 4000;
+
+            }
+
+
+            /* Calculate Days */
+
+            let startDate =
+                new Date(checkIn);
+
+            let endDate =
+                new Date(checkOut);
+
+
+            let difference =
+                endDate - startDate;
+
+
+            let days =
+                difference /
+                (1000 * 60 * 60 * 24);
+
+
+            /* Check Date */
+
+            if (days <= 0) {
+
+                alert(
+                    "Check-out date must be after check-in date"
+                );
+
+                return;
+
+            }
+
+
+            /* Total Amount */
+
+            let totalAmount =
+                roomRate * days;
+
+
+            /* Booking Data */
+
+            let bookingData = {
+
+                customerName: customerName,
+
+                phoneNumber: phoneNumber,
+
+                roomType: roomType,
+
+                checkIn: checkIn,
+
+                checkOut: checkOut,
+
+                guests: guests,
+
+                days: days,
+
+                roomRate: roomRate,
+
+                totalAmount: totalAmount
+
+            };
+
+
+            /* Save Data */
+
+            localStorage.setItem(
+                "bookingData",
+                JSON.stringify(bookingData)
+            );
+
+
+            /* Go to Confirmation */
+
+            window.location.href =
+                "confirmation.html";
+
+        }
+
+    </script>
+
+
+</body>
+
 </html>

@@ -1,115 +1,213 @@
 <!DOCTYPE html>
-    <html>
-        <head>
-            <title>HOTEL BOOKING MANAGEMENT</title>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
 
-            <style>
-               body{
-                background-color:#eeeeff;
-                font-family:Arial,san-serif;
-                margin:0;
-                padding:0;
-               }
-               h1{
-                text-align:center;
-                color:#333366;
-                margin-top:35px;
-               } 
-               .login-box{
-                  width:350px;
-                  margin:45px auto;
-                  padding:30px;
-                  background-color:#fffbee;
-                  border-radius:15px;
-                  box-shadow: 0px 5px 20px gray;
-               }
-               .login-box p{
-                text-align:center;
-                color:#666666;
-                margin-bottom:30px;
-               }
-               label{
-                font-size:18px;
-                color:#333333;
-               }
-               input[type="text"],input[type="password"]{
-                width:100%;
-                padding:12px;
-                margin-top:8px;
-                box-sizing:border-box;
-                border: 1px solid #cccccc;
-                border-radius:6px;
-               }
-               input[typing="text"]:focus,input[type="password"]:focus{
-                outline:none;
-                border:2px solid #789ee8;
-               }
-               a{
-                display:block;
-                text-align:center;
-                color:#5d8dd8;
-                text-decoration:none;
-               }
-               input[type="submit"]{
-                display:block;
-                width:75%;
-                margin:auto;
-                padding:11px;
-                background-color:#4f4fa3;
-                border:none;
-                border-radius:20px;
-                font-size:16px;
-                cursor:pointer;
-               }
-               input[type="submit"]:hover{
-                background-color:#527fd0;
-                color:white;
-               }
- @media (max-width: 600px) {
+<head>
 
-    body {
-        padding: 15px;
-    }
-                                  
-       .login-container {
-        width: 90%;
-        padding: 25px 20px;
-        margin: 30px auto;
-    }
+    <title>HOTEL BOOKING MANAGEMENT</title>
 
-    .login-container h1 {
-        font-size: 24px;
-    }
+    <meta charset="UTF-8">
 
-    input {
-        width: 100%;
-        box-sizing: border-box;
-    }
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    button {
-        width: 100%;
-    }
+    <style>
 
-}
-            </style>
+        body {
+            background-color: #eeeeff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-        </head>
-        <body>
-                <h1>HOTEL MANAGEMENT SYSTEM</h1>
-                 <div class="login-box">                         
-                <p><small>Please Login Here</small></p>
-                <form action="home.html">
-                    <label for="Username"><b>Usename</b></label><br><br>
-                    <input type="text" id="Username" placeholder="Enter Username" required>
-                    <br><br> 
-                    <label for="Password"><b>Password</b></label><br><br>
-                    <input type="password" id="Password" placeholder="enter your password" required>
-                    <br><br>
-                    <a href="forgotpass.html">Forgot Password?</a><br><br>
-                    <input type="submit" value="login">               
-                </form>
-        </body>
-    </html>
-    //git checking
+        h1 {
+            text-align: center;
+            color: #333366;
+            margin-top: 35px;
+        }
+
+        .login-box {
+            width: 350px;
+            margin: 45px auto;
+            padding: 30px;
+            background-color: #fffbee;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px gray;
+        }
+
+        .login-box p {
+            text-align: center;
+            color: #666666;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #333333;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            box-sizing: border-box;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border: 2px solid #789ee8;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            color: #5d8dd8;
+            text-decoration: none;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 75%;
+            margin: auto;
+            padding: 11px;
+            background-color: #4f4fa3;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #527fd0;
+            color: white;
+        }
+
+
+        /* Mobile Screen */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .login-box {
+                width: 90%;
+                padding: 25px 20px;
+                margin: 30px auto;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            input {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <h1>HOTEL MANAGEMENT SYSTEM</h1>
+
+
+    <div class="login-box">
+
+        <p>
+            <small>Please Login Here</small>
+        </p>
+
+
+        <!-- Login Form -->
+
+        <form id="loginForm">
+
+            <label for="username">
+                <b>Username</b>
+            </label>
+
+            <br><br>
+
+            <input type="text"
+                   id="username"
+                   placeholder="Enter Username"
+                   required>
+
+            <br><br>
+
+
+            <label for="password">
+                <b>Password</b>
+            </label>
+
+            <br><br>
+
+            <input type="password"
+                   id="password"
+                   placeholder="Enter your password"
+                   required>
+
+            <br><br>
+
+
+            <a href="forgotpass.html">
+                Forgot Password?
+            </a>
+
+            <br><br>
+
+
+            <input type="submit"
+                   value="Login">
+
+        </form>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        document.getElementById("loginForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            let username =
+                document.getElementById("username").value;
+
+            let password =
+                document.getElementById("password").value;
+
+
+            if (username !== "" && password !== "") {
+
+                localStorage.setItem(
+                    "username",
+                    username
+                );
+
+                window.location.href = "home.html";
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

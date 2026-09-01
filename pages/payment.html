@@ -1,553 +1,475 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
+
+    <title>Payment - Royal Hotel</title>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Payment</title>
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef2ff;
+        }
+
+        /* Header */
+
+        header {
+            background-color: #1748d1;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-style: italic;
+        }
+
+        /* Navigation */
+
+        nav {
+            background-color: #43d51b;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #222;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 20px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* Title */
+
+        .page-title {
+            text-align: center;
+            margin: 30px;
+            color: #222;
+        }
+
+        /* Payment Box */
+
+        .payment-box {
+            width: 500px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px gray;
+            box-sizing: border-box;
+        }
+
+        .payment-box h2 {
+            text-align: center;
+            color: #1748d1;
+        }
+
+        /* Details */
+
+        .details {
+            background-color: #fffbea;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .detail-row {
+            display: flex;
+            margin: 15px 0;
+        }
+
+        .label {
+            width: 160px;
+            font-weight: bold;
+        }
+
+        .colon {
+            width: 20px;
+        }
+
+        .value {
+            color: #444;
+        }
+
+        /* Amount */
+
+        .amount {
+            background-color: #dff5e4;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            text-align: center;
+            color: #1748d1;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Payment Method */
+
+        .payment-method {
+            margin-top: 25px;
+        }
+
+        .payment-method label {
+            display: block;
+            margin: 15px 0;
+            padding: 12px;
+            background-color: #f3f5fa;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .payment-method input {
+            margin-right: 10px;
+        }
+
+        /* Pay Button */
+
+        .button {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .pay-btn {
+            background-color: #168bd5;
+            color: white;
+            border: none;
+            padding: 12px 50px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .pay-btn:hover {
+            background-color: #0c6ca9;
+        }
+
+        /* Phone */
+
+        @media (max-width: 600px) {
+
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            .payment-box {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .detail-row {
+                display: block;
+                margin: 20px 0;
+            }
+
+            .label {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .colon {
+                display: none;
+            }
+
+            .value {
+                display: block;
+            }
+
+            .pay-btn {
+                width: 90%;
+            }
+
+        }
+
+    </style>
 
-   <style>
-       /* =========================
-   BASIC
-========================= */
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-
-    font-family: Arial, sans-serif;
-
-    background-color: #eef4ff;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header {
-    height: 60px;
-
-    background-color: #1239d8;
-
-    color: white;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 0 40px;
-}
-
-header h2 {
-    margin: 0;
-}
-
-
-/* =========================
-   NAVIGATION
-========================= */
-
-nav {
-    background-color: #20d900;
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 40px;
-
-    padding: 12px;
-}
-
-nav a {
-    color: black;
-
-    text-decoration: none;
-
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: white;
-}
-
-
-/* =========================
-   MAIN PAYMENT BOX
-========================= */
-
-.payment-box {
-    width: 90%;
-
-    max-width: 1000px;
-
-    margin: 30px auto;
-
-    background-color: white;
-
-    padding: 30px;
-
-    border-radius: 15px;
-
-    box-shadow: 0 4px 15px #aaa;
-}
-
-
-/* =========================
-   HEADING
-========================= */
-
-.heading {
-    text-align: center;
-
-    border-bottom: 1px solid #ddd;
-
-    padding-bottom: 20px;
-}
-
-.heading h1 {
-    color: #1239d8;
-
-    margin: 5px;
-}
-
-.heading p {
-    color: #555;
-}
-
-
-/* =========================
-   PAYMENT TITLE
-========================= */
-
-.payment-title {
-    color: #1239d8;
-
-    margin-top: 25px;
-}
-
-
-/* =========================
-   PAYMENT OPTIONS
-========================= */
-
-.payment-options {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 20px;
-
-    margin-top: 20px;
-}
-
-
-.payment-option {
-    border: 1px solid #ccc;
-
-    padding: 18px;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    font-size: 17px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-}
-
-
-.payment-option:hover {
-    border-color: #1239d8;
-
-    background-color: #f2f6ff;
-}
-
-
-.payment-option input {
-    width: 18px;
-
-    height: 18px;
-}
-
-
-/* =========================
-   INPUT
-========================= */
-
-.input-label {
-    display: block;
-
-    margin-top: 25px;
-
-    margin-bottom: 8px;
-
-    font-weight: bold;
-}
-
-
-.payment-input {
-    width: 100%;
-
-    padding: 14px;
-
-    border: 1px solid #ccc;
-
-    border-radius: 6px;
-
-    font-size: 16px;
-}
-
-
-/* =========================
-   AMOUNT
-========================= */
-
-.amount {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-top: 25px;
-
-    padding: 18px;
-
-    background-color: #eef4ff;
-
-    border-radius: 8px;
-
-    font-size: 18px;
-}
-
-
-.amount strong {
-    color: #1239d8;
-
-    font-size: 20px;
-}
-
-
-/* =========================
-   PAY BUTTON
-========================= */
-
-.pay-button {
-    width: 100%;
-
-    margin-top: 25px;
-
-    padding: 15px;
-
-    border: none;
-
-    border-radius: 25px;
-
-    background-color: #1645e8;
-
-    color: white;
-
-    font-size: 18px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
-
-.pay-button:hover {
-    background-color: #0d32b5;
-}
-
-
-/* =========================
-   SECURE MESSAGE
-========================= */
-
-.secure {
-    text-align: center;
-
-    color: #555;
-
-    margin-bottom: 0;
-}
-
-
-/* =========================
-   PHONE SCREEN
-========================= */
-
-@media (max-width: 600px) {
-
-
-    /* Header */
-
-    header {
-        height: auto;
-
-        padding: 15px;
-
-        flex-direction: column;
-
-        gap: 10px;
-
-        text-align: center;
-    }
-
-
-    header h2 {
-        font-size: 20px;
-    }
-
-
-    /* Navigation */
-
-    nav {
-        flex-direction: column;
-
-        gap: 10px;
-
-        text-align: center;
-    }
-
-
-    nav a {
-        margin: 5px;
-    }
-
-
-    /* Payment Box */
-
-    .payment-box {
-        width: 94%;
-
-        margin: 20px auto;
-
-        padding: 20px;
-    }
-
-
-    /* Payment Options */
-
-    .payment-options {
-        grid-template-columns: 1fr;
-
-        gap: 12px;
-    }
-
-
-    .payment-option {
-        padding: 15px;
-
-        font-size: 15px;
-    }
-
-
-    /* Heading */
-
-    .heading h1 {
-        font-size: 25px;
-    }
-
-
-    /* Amount */
-
-    .amount {
-        font-size: 16px;
-    }
-
-
-    .amount strong {
-        font-size: 18px;
-    }
-
-
-    /* Button */
-
-    .pay-button {
-        font-size: 16px;
-    }
-
-}
-   </style>
 </head>
 
+
 <body>
+
 
     <!-- Header -->
 
     <header>
 
-        <h2> ROYAL HOTEL</h2>
+        <h1>ROYAL HOTEL</h1>
 
-   </header>
+    </header>
 
 
     <!-- Navigation -->
 
     <nav>
 
-        <a href="home.html">HOME</a>
+        <a href="home.html">Home</a> |
 
-        <a href="booking.html">BOOKING</a>
+        <a href="booking.html">Room Booking</a> |
 
-        <a href="confirmation.html">
-            CONFIRMATION
-        </a>
+        <a href="confirmation.html">Confirmation</a> |
 
-        <a href="payment.html">
-            PAYMENT
-        </a>
+        <a href="payment.html">Payment</a> |
 
-        <a href="#"> CONTACT</a>
+        <a href="bookinghistory.html">history</a> |
 
-        <a href="login.html">
-             LOGOUT
-        </a>
+        <a href="contact.html">contact us</a> |
+
+        <a href="logout.html">Logout</a>
 
     </nav>
 
 
-    <!-- Main Payment Box -->
+    <h2 class="page-title">
+        PAYMENT
+    </h2>
+
+
+    <!-- Payment Box -->
 
     <div class="payment-box">
 
 
-        <!-- Heading -->
+        <h2>
+            Payment Details
+        </h2>
 
-        <div class="heading">
 
-            <h1>Payment</h1>
+        <!-- Booking Details -->
 
-            <p>
-                Complete your payment to confirm your booking
-            </p>
+        <div class="details">
+
+
+            <div class="detail-row">
+
+                <div class="label">
+                    Customer Name
+                </div>
+
+                <div class="colon">
+                    :
+                </div>
+
+                <div class="value"
+                     id="customerName">
+                </div>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <div class="label">
+                    Room Type
+                </div>
+
+                <div class="colon">
+                    :
+                </div>
+
+                <div class="value"
+                     id="roomType">
+                </div>
+
+            </div>
+
+
+            <div class="detail-row">
+
+                <div class="label">
+                    Number of Days
+                </div>
+
+                <div class="colon">
+                    :
+                </div>
+
+                <div class="value"
+                     id="days">
+                </div>
+
+            </div>
+
+
+            <!-- Automatic Amount -->
+
+            <div class="amount"
+                 id="totalAmount">
+            </div>
+
 
         </div>
 
 
-        <!-- Form -->
+        <!-- Payment Method -->
 
-        <form action="paysuccess.html">
-
-
-            <h2 class="payment-title">
-                Payment Details
-            </h2>
-
+        <div class="payment-method">
 
             <h3>
                 Select Payment Method
             </h3>
 
 
-            <!-- Payment Options -->
+            <label>
 
-            <div class="payment-options">
+                <input type="radio"
+                       name="payment"
+                       value="Cash"
+                       required>
 
+                Cash
 
-                <label class="payment-option">
-
-                    <input type="radio"
-                           name="payment"
-                           value="upi"
-                           required>
-
-                    <span>UPI</span>
-
-                </label>
-
-
-                <label class="payment-option">
-
-                    <input type="radio"
-                           name="payment"
-                           value="card">
-
-                    <span> Credit / Debit Card</span>
-
-                </label>
-
-
-                <label class="payment-option">
-
-                    <input type="radio"
-                           name="payment"
-                           value="cash">
-
-                    <span> Cash on Arrival</span>
-
-                </label>
-
-
-                <label class="payment-option">
-
-                    <input type="radio"
-                           name="payment"
-                           value="netbanking">
-
-                    <span> Net Banking</span>
-
-                </label>
-
-
-            </div>
-
-
-            <!-- UPI ID -->
-
-            <label class="input-label">
-                UPI ID
             </label>
 
-            <input type="text"
-                   class="payment-input"
-                   placeholder="Enter your UPI ID">
+
+            <label>
+
+                <input type="radio"
+                       name="payment"
+                       value="Credit Card">
+
+                Credit Card
+
+            </label>
 
 
-            <!-- Amount -->
+            <label>
 
-            <div class="amount">
+                <input type="radio"
+                       name="payment"
+                       value="Debit Card">
 
-                <span>Total Amount</span>
+                Debit Card
 
-                <strong>₹4,500.00</strong>
-
-            </div>
+            </label>
 
 
-            <!-- Pay Button -->
+            <label>
 
-            <button type="submit"
-                    class="pay-button">
+                <input type="radio"
+                       name="payment"
+                       value="Net Banking">
 
-                 Pay Now ₹4,500.00
+                Net Banking
+
+            </label>
+
+        </div>
+
+
+        <!-- Pay Button -->
+
+        <div class="button">
+
+            <button class="pay-btn"
+                    onclick="makePayment()">
+
+                Pay Now
 
             </button>
 
+        </div>
 
-            <p class="secure">
-                 Your payment is secure
-            </p>
-
-
-        </form>
 
     </div>
+
+
+    <script>
+
+
+        /* Get Booking Data */
+
+        let bookingData =
+            JSON.parse(
+                localStorage.getItem("bookingData")
+            );
+
+
+        /* Check Booking Data */
+
+        if (!bookingData) {
+
+            alert("Booking details not found.");
+
+            window.location.href =
+                "booking.html";
+
+        }
+
+
+        /* Display Details */
+
+        document.getElementById("customerName").innerText =
+            bookingData.customerName;
+
+
+        document.getElementById("roomType").innerText =
+            bookingData.roomType;
+
+
+        document.getElementById("days").innerText =
+            bookingData.days + " Day(s)";
+
+
+        /* Display Amount */
+
+        document.getElementById("totalAmount").innerText =
+            "Total Amount : ₹ " +
+            bookingData.totalAmount;
+
+
+        /* Payment */
+
+        function makePayment() {
+
+
+            let selectedPayment =
+                document.querySelector(
+                    'input[name="payment"]:checked'
+                );
+
+
+            if (!selectedPayment) {
+
+                alert(
+                    "Please select a payment method."
+                );
+
+                return;
+
+            }
+
+
+            /* Save Payment Mode */
+
+            localStorage.setItem(
+                "paymentMode",
+                selectedPayment.value
+            );
+
+
+            /* Go to Payment Success */
+
+            window.location.href =
+                "paysuccess.html";
+
+        }
+
+    </script>
+
 
 </body>
 

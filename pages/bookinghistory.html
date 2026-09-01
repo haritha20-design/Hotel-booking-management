@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Booking History - Royal Hotel</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef2ff;
+        }
+
+        header {
+            background-color: #1748d1;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-style: italic;
+        }
+
+        nav {
+            background-color: #43d51b;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #222;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 20px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 30px;
+            color: #222;
+        }
+
+        .history-box {
+            width: 90%;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px gray;
+            box-sizing: border-box;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px;
+        }
+
+        th {
+            background-color: #1748d1;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f3f5fa;
+        }
+
+        .confirmed {
+            color: green;
+            font-weight: bold;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            font-size: 18px;
+        }
+
+        .clear-btn {
+            display: block;
+            margin: 25px auto 0;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 20px;
+            background-color: #e53935;
+            color: white;
+            cursor: pointer;
+        }
+
+        .clear-btn:hover {
+            background-color: #c62828;
+        }
+
+        @media (max-width: 600px) {
+
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            .history-box {
+                width: 95%;
+                padding: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>ROYAL HOTEL</h1>
+
+</header>
+
+
+<nav>
+
+    <a href="home.html">Home</a> |
+
+    <a href="booking.html">Room Booking</a> |
+
+    <a href="confirmation.html">Confirmation</a> |
+
+    <a href="payment.html">Payment</a> |
+
+    <a href="bookinghistory.html">history</a> |
+
+    <a href="contact.html">contact us</a> |
+
+    <a href="logout.html">Logout</a>
+
+</nav>
+
+
+<h2>BOOKING HISTORY</h2>
+
+
+<div class="history-box">
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Customer Name</th>
+
+                <th>Room Type</th>
+
+                <th>Check-in</th>
+
+                <th>Check-out</th>
+
+                <th>Guests</th>
+
+                <th>Days</th>
+
+                <th>Amount</th>
+
+                <th>Payment</th>
+
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="historyTable">
+
+        </tbody>
+
+    </table>
+
+
+    <div id="noData"
+         class="no-data"
+         style="display:none;">
+
+        No booking history found.
+
+    </div>
+
+
+    <button class="clear-btn"
+            onclick="clearHistory()">
+
+        Clear History
+
+    </button>
+
+</div>
+
+
+<script>
+
+
+/* Get Booking History */
+
+let history =
+    JSON.parse(
+        localStorage.getItem("bookingHistory")
+    ) || [];
+
+
+let table =
+    document.getElementById("historyTable");
+
+let noData =
+    document.getElementById("noData");
+
+
+/* Display History */
+
+if (history.length === 0) {
+
+    noData.style.display = "block";
+
+}
+
+else {
+
+    history.forEach(function(booking) {
+
+        let row =
+            document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td>${booking.customerName}</td>
+
+            <td>${booking.roomType}</td>
+
+            <td>${booking.checkIn}</td>
+
+            <td>${booking.checkOut}</td>
+
+            <td>${booking.guests}</td>
+
+            <td>${booking.days}</td>
+
+            <td>₹ ${booking.totalAmount}</td>
+
+            <td>${booking.paymentMode}</td>
+
+            <td class="confirmed">
+                ${booking.status}
+            </td>
+
+        `;
+
+
+        table.appendChild(row);
+
+    });
+
+}
+
+
+/* Clear History */
+
+function clearHistory() {
+
+    if (
+        confirm(
+            "Are you sure you want to clear booking history?"
+        )
+    ) {
+
+        localStorage.removeItem(
+            "bookingHistory"
+        );
+
+        location.reload();
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

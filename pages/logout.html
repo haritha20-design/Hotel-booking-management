@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Logout - Royal Hotel</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef2ff;
+        }
+
+        header {
+            background-color: #1748d1;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-style: italic;
+        }
+
+        nav {
+            background-color: #43d51b;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #222;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 20px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .logout-box {
+            width: 450px;
+            margin: 100px auto;
+            background-color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px gray;
+            box-sizing: border-box;
+        }
+
+        .logout-box h2 {
+            color: #1748d1;
+        }
+
+        .logout-box p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        .logout-btn,
+        .login-btn {
+            border: none;
+            padding: 12px 40px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .logout-btn {
+            background-color: #e53935;
+            color: white;
+        }
+
+        .logout-btn:hover {
+            background-color: #c62828;
+        }
+
+        .login-btn {
+            background-color: #168bd5;
+            color: white;
+        }
+
+        .login-btn:hover {
+            background-color: #0c6ca9;
+        }
+
+        /* Success message initially hidden */
+
+        #success {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            .logout-box {
+                width: 90%;
+                margin: 70px auto;
+                padding: 30px 20px;
+            }
+
+            .logout-btn,
+            .login-btn {
+                width: 90%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1>ROYAL HOTEL</h1>
+
+    </header>
+
+
+    <nav>
+
+        <a href="home.html">Home</a> |
+
+        <a href="booking.html">Room Booking</a> |
+
+        <a href="confirmation.html">Confirmation</a> |
+
+        <a href="payment.html">Payment</a> |
+
+        <a href="bookinghistory.html">Booking History</a> |
+
+        <a href="contact.html">Contact</a> |
+
+        <a href="logout.html">Logout</a>
+
+    </nav>
+
+
+    <!-- Logout Confirmation -->
+
+    <div class="logout-box" id="logoutPage">
+
+        <h2>Logout</h2>
+
+        <p>
+            Are you sure you want to logout?
+        </p>
+
+        <button class="logout-btn"
+                onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </div>
+
+
+    <!-- Logout Success -->
+
+    <div class="logout-box" id="success">
+
+        <h2>Logged Out Successfully!</h2>
+
+        <p>
+            Thank you for using Royal Hotel.
+        </p>
+
+        <button class="login-btn"
+                onclick="loginAgain()">
+
+            Login Again
+
+        </button>
+
+    </div>
+
+
+    <script>
+
+        function logout() {
+
+            document.getElementById("logoutPage").style.display = "none";
+
+            document.getElementById("success").style.display = "block";
+
+        }
+
+
+        function loginAgain() {
+
+            window.location.href = "login.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
