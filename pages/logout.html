@@ -1,219 +1,400 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Logout - Royal Hotel</title>
+<title>Logout - Grand Stay</title>
 
-    <meta charset="UTF-8">
+<style>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-    <style>
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#eef5ff,#ffffff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #eef2ff;
-        }
+/* Main Card */
+.logout-card{
+    width:430px;
+    background:white;
+    padding:45px 35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 35px rgba(0,0,0,0.12);
+}
 
-        header {
-            background-color: #1748d1;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
+/* Logo */
+.logo{
+    width:75px;
+    height:75px;
+    object-fit:contain;
+    margin-bottom:18px;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-            font-style: italic;
-        }
+/* Logout Icon */
+.logout-icon{
+    width:70px;
+    height:70px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:#eef5ff;
+    color:#003b73;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:34px;
+}
 
-        nav {
-            background-color: #43d51b;
-            padding: 12px;
-            text-align: center;
-        }
+/* Heading */
+h1{
+    color:#003b73;
+    margin-bottom:12px;
+    font-size:30px;
+}
 
-        nav a {
-            color: #222;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 20px;
-        }
+.description{
+    color:#666;
+    line-height:1.6;
+    margin-bottom:28px;
+    font-size:15px;
+}
 
-        nav a:hover {
-            color: white;
-        }
+/* Logout Button */
+.logout-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#003b73;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-        .logout-box {
-            width: 450px;
-            margin: 100px auto;
-            background-color: white;
-            padding: 40px;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px gray;
-            box-sizing: border-box;
-        }
+.logout-btn:hover{
+    background:#0056a6;
+}
 
-        .logout-box h2 {
-            color: #1748d1;
-        }
+/* Cancel */
+.cancel-btn{
+    display:block;
+    margin-top:16px;
+    color:#003b73;
+    text-decoration:none;
+    font-size:14px;
+}
 
-        .logout-box p {
-            color: #555;
-            font-size: 16px;
-        }
+.cancel-btn:hover{
+    text-decoration:underline;
+}
 
-        .logout-btn,
-        .login-btn {
-            border: none;
-            padding: 12px 40px;
-            border-radius: 25px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
 
-        .logout-btn {
-            background-color: #e53935;
-            color: white;
-        }
+/* Popup Background */
+.popup-bg{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    justify-content:center;
+    align-items:center;
+}
 
-        .logout-btn:hover {
-            background-color: #c62828;
-        }
+/* Popup */
+.popup{
+    width:390px;
+    background:white;
+    padding:32px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
 
-        .login-btn {
-            background-color: #168bd5;
-            color: white;
-        }
+.popup-icon{
+    width:58px;
+    height:58px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    background:#eef5ff;
+    color:#003b73;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:26px;
+    font-weight:bold;
+}
 
-        .login-btn:hover {
-            background-color: #0c6ca9;
-        }
+.popup h2{
+    color:#003b73;
+    margin-bottom:10px;
+    font-size:23px;
+}
 
-        /* Success message initially hidden */
+.popup p{
+    color:#666;
+    line-height:1.5;
+    margin-bottom:22px;
+}
 
-        #success {
-            display: none;
-        }
+/* Popup Buttons */
+.popup-buttons{
+    display:flex;
+    gap:12px;
+}
 
-        @media (max-width: 600px) {
+.popup-buttons button{
+    flex:1;
+    padding:12px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-            nav a {
-                display: block;
-                margin: 10px;
-            }
+.cancel-popup{
+    background:white;
+    border:1px solid #ccc;
+}
 
-            .logout-box {
-                width: 90%;
-                margin: 70px auto;
-                padding: 30px 20px;
-            }
+.cancel-popup:hover{
+    background:#f5f5f5;
+}
 
-            .logout-btn,
-            .login-btn {
-                width: 90%;
-            }
+.confirm-popup{
+    background:#003b73;
+    border:none;
+    color:white;
+}
 
-        }
+.confirm-popup:hover{
+    background:#0056a6;
+}
 
-    </style>
 
+/* Success Section */
+.success-section{
+    display:none;
+}
+
+.success-icon{
+    width:75px;
+    height:75px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:#e8f7ee;
+    color:#198754;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:38px;
+    animation:successPop 0.4s ease;
+}
+
+@keyframes successPop{
+
+    from{
+        transform:scale(0.5);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+.success-section h1{
+    color:#198754;
+}
+
+/* Login Again */
+.login-again{
+    display:inline-block;
+    margin-top:8px;
+    padding:13px 30px;
+    background:#003b73;
+    color:white;
+    text-decoration:none;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.login-again:hover{
+    background:#0056a6;
+}
+
+
+/* Mobile */
+@media(max-width:500px){
+
+    .logout-card{
+        width:100%;
+        padding:35px 25px;
+    }
+
+    .popup{
+        width:90%;
+        padding:28px 22px;
+    }
+
+}
+
+</style>
 </head>
-
 
 <body>
 
-    <header>
 
-        <h1>ROYAL HOTEL</h1>
+<!-- Main Logout Card -->
 
-    </header>
+<div class="logout-card">
 
+    <!-- Logout Section -->
 
-    <nav>
+    <div id="logoutSection">
 
-        <a href="home.html">Home</a> |
+        <img src="images/logo.png"
+             alt="Grand Stay Logo"
+             class="logo">
 
-        <a href="booking.html">Room Booking</a> |
+        <div class="logout-icon">
+            ⇥
+        </div>
 
-        <a href="confirmation.html">Confirmation</a> |
+        <h1>Logout</h1>
 
-        <a href="payment.html">Payment</a> |
-
-        <a href="bookinghistory.html">Booking History</a> |
-
-        <a href="contact.html">Contact</a> |
-
-        <a href="logout.html">Logout</a>
-
-    </nav>
-
-
-    <!-- Logout Confirmation -->
-
-    <div class="logout-box" id="logoutPage">
-
-        <h2>Logout</h2>
-
-        <p>
-            Are you sure you want to logout?
+        <p class="description">
+            Are you sure you want to logout from your
+            Grand Stay account?
         </p>
 
-        <button class="logout-btn"
-                onclick="logout()">
-
+        <button class="logout-btn" onclick="showPopup()">
             Logout
-
         </button>
+
+        <a href="home.html" class="cancel-btn">
+            Cancel
+        </a>
 
     </div>
 
 
-    <!-- Logout Success -->
+    <!-- Success Section -->
 
-    <div class="logout-box" id="success">
+    <div id="successSection" class="success-section">
 
-        <h2>Logged Out Successfully!</h2>
+        <div class="success-icon">
+            ✓
+        </div>
 
-        <p>
-            Thank you for using Royal Hotel.
+        <h1>
+            Logged Out
+        </h1>
+
+        <p class="description">
+            You have been successfully logged out.
         </p>
 
-        <button class="login-btn"
-                onclick="loginAgain()">
-
+        <a href="login.html" class="login-again">
             Login Again
-
-        </button>
+        </a>
 
     </div>
 
-
-    <script>
-
-        function logout() {
-
-            document.getElementById("logoutPage").style.display = "none";
-
-            document.getElementById("success").style.display = "block";
-
-        }
+</div>
 
 
-        function loginAgain() {
 
-            window.location.href = "login.html";
+<!-- Confirmation Popup -->
 
-        }
+<div class="popup-bg" id="popup">
 
-    </script>
+    <div class="popup">
+
+        <div class="popup-icon">
+            ?
+        </div>
+
+        <h2>
+            Confirm Logout
+        </h2>
+
+        <p>
+            Are you sure you want to logout from
+            your Grand Stay account?
+        </p>
+
+        <div class="popup-buttons">
+
+            <button class="cancel-popup"
+                    onclick="closePopup()">
+                Cancel
+            </button>
+
+            <button class="confirm-popup"
+                    onclick="confirmLogout()">
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* Show Popup */
+
+function showPopup(){
+
+    document.getElementById("popup").style.display = "flex";
+
+}
+
+
+/* Close Popup */
+
+function closePopup(){
+
+    document.getElementById("popup").style.display = "none";
+
+}
+
+
+/* Confirm Logout */
+
+function confirmLogout(){
+
+    // Login status remove
+    localStorage.removeItem("isLoggedIn");
+
+    // Close popup
+    document.getElementById("popup").style.display = "none";
+
+    // Hide logout section
+    document.getElementById("logoutSection").style.display = "none";
+
+    // Show success message
+    document.getElementById("successSection").style.display = "block";
+
+}
+
+</script>
 
 </body>
-
 </html>

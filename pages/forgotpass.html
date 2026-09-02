@@ -1,20 +1,429 @@
 <!DOCTYPE html>
-    <html>
-        <head><title>forgot password page</title></head>
-        <body>
-            <center>
-                <br><br><br><br><br><br><br>
-                <p><i>Forgot Pssword</i></p>
-                <form>
-                    <label for="Email">Email</label><br><br>
-                    <input type="email" id="Email" palceholder="enter your email" required>
-                    <br><br>
-                    <label>Enter Code</label><br><br>
-                    <input type="text" required>
-                    <br><br>
-                    <input type="submit"><br><br>
-                    <a href="login.html">BACK TO LOGIN</a> 
-                </form>         
-            </center>
-        </body>
-    </html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Forgot Password - Grand Stay</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background: linear-gradient(
+                135deg,
+                #eef6ff,
+                #dcecff
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+
+        /* Main Card */
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+
+            background: white;
+
+            padding: 45px 40px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 60, 120, 0.15);
+        }
+
+
+        /* Lock Icon */
+
+        .icon {
+            width: 70px;
+            height: 70px;
+
+            margin: 0 auto 20px;
+
+            background: #e8f3ff;
+
+            border-radius: 18px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 32px;
+        }
+
+
+        /* Heading */
+
+        h1 {
+            text-align: center;
+
+            color: #12395b;
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* Description */
+
+        .description {
+            text-align: center;
+
+            color: #777;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* Form */
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+
+        label {
+            display: block;
+
+            color: #333;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* Email Input */
+
+        input {
+            width: 100%;
+
+            height: 52px;
+
+            padding: 0 15px;
+
+            border: 1px solid #d2dae4;
+
+            border-radius: 9px;
+
+            outline: none;
+
+            font-size: 15px;
+        }
+
+
+        input:focus {
+            border-color: #1976d2;
+
+            box-shadow:
+                0 0 0 3px rgba(25, 118, 210, 0.1);
+        }
+
+
+        /* Continue Button */
+
+        .continue-btn {
+            width: 100%;
+
+            height: 52px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #1976d2;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            margin-top: 5px;
+        }
+
+
+        .continue-btn:hover {
+            background: #125ca5;
+        }
+
+
+        /* Message */
+
+        .message {
+            text-align: center;
+
+            font-size: 14px;
+
+            margin-top: 15px;
+
+            min-height: 20px;
+        }
+
+
+        /* Back to Login */
+
+        .back-login {
+            display: block;
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #1976d2;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        .back-login:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Security Text */
+
+        .security {
+            text-align: center;
+
+            margin-top: 25px;
+
+            padding-top: 18px;
+
+            border-top: 1px solid #eee;
+
+            color: #888;
+
+            font-size: 12px;
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 500px) {
+
+            .container {
+                padding: 35px 25px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <!-- Icon -->
+
+        <div class="icon">
+            🔐
+        </div>
+
+
+        <!-- Heading -->
+
+        <h1>
+            Forgot Password?
+        </h1>
+
+
+        <p class="description">
+            Don't worry! Enter your registered email
+            address and we'll help you reset your password.
+        </p>
+
+
+        <!-- Form -->
+
+        <form id="forgotPasswordForm">
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email address"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Continue Button -->
+
+            <button
+                type="submit"
+                class="continue-btn">
+
+                Continue
+
+            </button>
+
+
+            <!-- Message -->
+
+            <p
+                id="message"
+                class="message">
+            </p>
+
+
+        </form>
+
+
+        <!-- Back -->
+
+        <a
+            href="login.html"
+            class="back-login">
+
+            ← Back to Login
+
+        </a>
+
+
+        <!-- Security -->
+
+        <div class="security">
+
+            🔒 Your account information is protected.
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+        // Forgot Password Form
+
+        document
+        .getElementById("forgotPasswordForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            // Get email
+
+            const email =
+                document.getElementById("email").value
+                .trim()
+                .toLowerCase();
+
+
+            const message =
+                document.getElementById("message");
+
+
+            // Get registered user
+
+            const savedUser =
+                localStorage.getItem("hotelUser");
+
+
+            if (!savedUser) {
+
+                message.style.color = "red";
+
+                message.textContent =
+                    "No registered account found.";
+
+                return;
+            }
+
+
+            // Convert JSON to object
+
+            const user =
+                JSON.parse(savedUser);
+
+
+            // Check Email
+
+            if (
+                user.email &&
+                user.email.toLowerCase() === email
+            ) {
+
+                message.style.color = "green";
+
+                message.textContent =
+                    "Email verified! Redirecting...";
+
+
+                // Go to Change Password
+
+                setTimeout(function() {
+
+                    window.location.href =
+                        "changepassword.html";
+
+                }, 1200);
+
+            }
+
+            else {
+
+                message.style.color = "red";
+
+                message.textContent =
+                    "Email address not found.";
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

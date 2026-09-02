@@ -1,402 +1,898 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Payment Success - Royal Hotel</title>
+<title>Payment Successful | Grand Stay</title>
 
-    <meta charset="UTF-8">
+<style>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-    <style>
+body{
+    background:#f4f7fb;
+    color:#172033;
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #eef2ff;
-        }
+/* NAVBAR */
 
-        header {
-            background-color: #1748d1;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
+.navbar{
+    height:72px;
+    background:white;
+    border-bottom:1px solid #e5e7eb;
 
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-            font-style: italic;
-        }
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-        nav {
-            background-color: #43d51b;
-            padding: 12px;
-            text-align: center;
-        }
+    padding:0 7%;
+}
 
-        nav a {
-            color: #222;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 20px;
-        }
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
 
-        nav a:hover {
-            color: white;
-        }
+.logo img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
 
-        .success-box {
-            width: 550px;
-            margin: 50px auto;
-            background-color: white;
-            padding: 35px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px gray;
-            box-sizing: border-box;
-        }
+.logo h2{
+    color:#003b95;
+    font-size:21px;
+    letter-spacing:.5px;
+}
 
-        .check {
-            font-size: 60px;
-            color: green;
-            margin-bottom: 10px;
-        }
+.secure{
+    font-size:13px;
+    color:#64748b;
+}
 
-        .success-box h2 {
-            color: green;
-            margin-bottom: 10px;
-        }
 
-        .success-box p {
-            color: #555;
-        }
+/* MAIN */
 
-        .details {
-            background-color: #fffbea;
-            padding: 20px;
-            margin-top: 25px;
-            border-radius: 10px;
-            text-align: left;
-        }
+.page{
+    width:90%;
+    max-width:850px;
+    margin:45px auto;
+}
 
-        .detail-row {
-            display: flex;
-            margin: 15px 0;
-        }
 
-        .label {
-            width: 170px;
-            font-weight: bold;
-        }
+/* SUCCESS HEADER */
 
-        .colon {
-            width: 20px;
-        }
+.success-header{
+    text-align:center;
+    margin-bottom:30px;
+}
 
-        .value {
-            color: #444;
-        }
+.success-circle{
+    width:82px;
+    height:82px;
 
-        .amount {
-            background-color: #dff5e4;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 8px;
-            text-align: center;
-            color: #1748d1;
-            font-size: 20px;
-            font-weight: bold;
-        }
+    margin:0 auto 18px;
 
-        .home-button {
-            margin-top: 30px;
-            text-align: center;
-        }
+    border-radius:50%;
 
-        .home-button button {
-            background-color: #168bd5;
-            color: white;
-            border: none;
-            padding: 12px 40px;
-            border-radius: 25px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+    background:#e8f7ef;
 
-        .home-button button:hover {
-            background-color: #0c6ca9;
-        }
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-        @media (max-width: 600px) {
+    font-size:45px;
+    color:#16834b;
 
-            nav a {
-                display: block;
-                margin: 10px;
-            }
+    border:6px solid #d8f0e3;
+}
 
-            .success-box {
-                width: 90%;
-                margin: 30px auto;
-                padding: 20px;
-            }
+.success-header h1{
+    font-size:32px;
+    margin-bottom:10px;
+}
 
-            .detail-row {
-                display: block;
-                margin: 20px 0;
-            }
+.success-header p{
+    color:#64748b;
+    font-size:15px;
+}
 
-            .label {
-                width: 100%;
-                margin-bottom: 5px;
-            }
 
-            .colon {
-                display: none;
-            }
+/* MAIN CARD */
 
-            .value {
-                display: block;
-            }
+.card{
+    background:white;
+    border-radius:16px;
 
-            .home-button button {
-                width: 90%;
-            }
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
 
-        }
+    overflow:hidden;
+}
 
-    </style>
 
+/* TOP STATUS */
+
+.status{
+    background:#003b95;
+    color:white;
+
+    padding:20px 28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.status-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.status-icon{
+    width:38px;
+    height:38px;
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:19px;
+}
+
+.status h3{
+    font-size:16px;
+}
+
+.status p{
+    font-size:12px;
+    margin-top:4px;
+    opacity:.8;
+}
+
+.status-badge{
+    background:#e8f7ef;
+    color:#16834b;
+
+    padding:7px 13px;
+
+    border-radius:20px;
+
+    font-size:12px;
+    font-weight:bold;
+}
+
+
+/* CONTENT */
+
+.content{
+    padding:28px;
+}
+
+
+/* PAYMENT INFO */
+
+.payment-info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+
+    margin-bottom:25px;
+}
+
+.info-box{
+    padding:18px;
+
+    border-right:1px solid #e5e7eb;
+}
+
+.info-box:last-child{
+    border-right:none;
+}
+
+.info-label{
+    font-size:12px;
+    color:#64748b;
+    margin-bottom:7px;
+}
+
+.info-value{
+    font-size:16px;
+    font-weight:bold;
+}
+
+
+/* BOOKING */
+
+.section-title{
+    font-size:17px;
+    margin-bottom:15px;
+}
+
+
+/* ROOM */
+
+.room{
+    display:flex;
+    gap:18px;
+
+    padding:18px;
+
+    background:#f8fafc;
+
+    border-radius:12px;
+
+    margin-bottom:22px;
+}
+
+.room img{
+    width:145px;
+    height:105px;
+
+    object-fit:cover;
+
+    border-radius:9px;
+}
+
+.room-info h2{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.room-info p{
+    color:#64748b;
+    font-size:13px;
+    margin-bottom:6px;
+}
+
+
+/* DETAILS */
+
+.details{
+    border-top:1px solid #e5e7eb;
+
+    padding-top:18px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+}
+
+.detail{
+    display:flex;
+    gap:10px;
+}
+
+.detail-icon{
+    width:35px;
+    height:35px;
+
+    background:#eef5ff;
+
+    border-radius:8px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.detail-text span{
+    display:block;
+    font-size:11px;
+    color:#64748b;
+    margin-bottom:4px;
+}
+
+.detail-text strong{
+    font-size:14px;
+}
+
+
+/* TOTAL */
+
+.total-box{
+    margin-top:25px;
+
+    padding:18px 20px;
+
+    border-radius:10px;
+
+    background:#f5f8fd;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.total-box span{
+    color:#64748b;
+    font-size:14px;
+}
+
+.total-box strong{
+    font-size:24px;
+    color:#003b95;
+}
+
+
+/* BUTTONS */
+
+.buttons{
+    display:flex;
+    gap:12px;
+
+    margin-top:25px;
+}
+
+.btn{
+    flex:1;
+
+    height:50px;
+
+    border-radius:8px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-decoration:none;
+
+    font-size:14px;
+    font-weight:bold;
+}
+
+.primary{
+    background:#006ce4;
+    color:white;
+}
+
+.primary:hover{
+    background:#0054b4;
+}
+
+.secondary{
+    background:white;
+    color:#006ce4;
+
+    border:1px solid #006ce4;
+}
+
+.secondary:hover{
+    background:#f1f7ff;
+}
+
+
+/* FOOTER NOTE */
+
+.note{
+    text-align:center;
+
+    margin-top:20px;
+
+    color:#64748b;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    .navbar{
+        padding:0 5%;
+    }
+
+    .secure{
+        display:none;
+    }
+
+    .page{
+        width:92%;
+        margin:30px auto;
+    }
+
+    .success-header h1{
+        font-size:26px;
+    }
+
+    .payment-info{
+        grid-template-columns:1fr;
+    }
+
+    .info-box{
+        border-right:none;
+        border-bottom:1px solid #e5e7eb;
+    }
+
+    .info-box:last-child{
+        border-bottom:none;
+    }
+
+    .room{
+        flex-direction:column;
+    }
+
+    .room img{
+        width:100%;
+        height:170px;
+    }
+
+    .details{
+        grid-template-columns:1fr;
+    }
+
+    .status{
+        padding:18px;
+    }
+
+    .status-badge{
+        display:none;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-    <header>
+<!-- NAVBAR -->
 
-        <h1>ROYAL HOTEL</h1>
+<div class="navbar">
 
-    </header>
+    <div class="logo">
 
+        <img src="images/logo.png"
+             alt="Grand Stay Logo">
 
-    <nav>
+        <h2>GRAND STAY</h2>
 
-        <a href="home.html">Home</a> |
+    </div>
 
-        <a href="booking.html">Room Booking</a> |
+    <div class="secure">
+        🔒 Secure Booking
+    </div>
 
-        <a href="confirmation.html">Confirmation</a> |
-
-        <a href="payment.html">Payment</a> |
-
-        <a href="bookinghistory.html">history</a> |
-
-        <a href="contact.html">contact us</a> |
-
-        <a href="logout.html">Logout</a>
-
-    </nav>
+</div>
 
 
-    <div class="success-box">
+
+<div class="page">
 
 
-        <div class="check">
+    <!-- SUCCESS HEADER -->
+
+    <div class="success-header">
+
+        <div class="success-circle">
             ✓
         </div>
 
-
-        <h2>
-            Payment Successful!
-        </h2>
-
+        <h1>Payment Successful!</h1>
 
         <p>
-            Your payment has been completed successfully.
+            Your payment has been received and your booking is confirmed.
         </p>
-
-
-        <div class="details">
-
-
-            <div class="detail-row">
-
-                <div class="label">
-                    Customer Name
-                </div>
-
-                <div class="colon">
-                    :
-                </div>
-
-                <div class="value"
-                     id="customerName">
-                </div>
-
-            </div>
-
-
-            <div class="detail-row">
-
-                <div class="label">
-                    Room Type
-                </div>
-
-                <div class="colon">
-                    :
-                </div>
-
-                <div class="value"
-                     id="roomType">
-                </div>
-
-            </div>
-
-
-            <div class="detail-row">
-
-                <div class="label">
-                    Number of Days
-                </div>
-
-                <div class="colon">
-                    :
-                </div>
-
-                <div class="value"
-                     id="days">
-                </div>
-
-            </div>
-
-
-            <div class="detail-row">
-
-                <div class="label">
-                    Payment Mode
-                </div>
-
-                <div class="colon">
-                    :
-                </div>
-
-                <div class="value"
-                     id="paymentMode">
-                </div>
-
-            </div>
-
-
-            <div class="amount"
-                 id="totalAmount">
-            </div>
-
-
-        </div>
-
-
-        <div class="home-button">
-
-            <button onclick="goHome()">
-                Back to Home
-            </button>
-
-        </div>
-
 
     </div>
 
 
-   <script>
 
-let bookingData =
-    JSON.parse(
-        localStorage.getItem("bookingData")
-    );
+    <!-- CARD -->
 
-let paymentMode =
-    localStorage.getItem("paymentMode");
+    <div class="card">
 
 
-if (!bookingData) {
+        <!-- STATUS -->
 
-    alert("Booking details not found.");
+        <div class="status">
 
-    window.location.href = "booking.html";
+            <div class="status-left">
+
+                <div class="status-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>Booking Confirmed</h3>
+
+                    <p>
+                        Thank you for choosing Grand Stay
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="status-badge">
+                PAYMENT SUCCESS
+            </div>
+
+        </div>
+
+
+
+        <div class="content">
+
+
+            <!-- PAYMENT INFO -->
+
+            <div class="payment-info">
+
+                <div class="info-box">
+
+                    <div class="info-label">
+                        Payment Method
+                    </div>
+
+                    <div class="info-value"
+                         id="paymentMethod">
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <div class="info-label">
+                        Payment Date
+                    </div>
+
+                    <div class="info-value"
+                         id="paymentDate">
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <div class="info-label">
+                        Payment Status
+                    </div>
+
+                    <div class="info-value"
+                         style="color:#16834b;">
+                        Paid ✓
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BOOKING DETAILS -->
+
+            <h2 class="section-title">
+                Your Stay
+            </h2>
+
+
+            <!-- ROOM -->
+
+            <div class="room">
+
+                <img id="roomImage"
+                     src="images/deluxe.jpg"
+                     alt="Hotel Room">
+
+
+                <div class="room-info">
+
+                    <h2 id="roomName">
+                        Deluxe Room
+                    </h2>
+
+                    <p>
+                        🏨 <span id="destination">-</span>
+                    </p>
+
+                    <p>
+                        📅 <span id="checkin">-</span>
+                        → <span id="checkout">-</span>
+                    </p>
+
+                    <p>
+                        👥 <span id="guests">-</span> Guest(s)
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DETAILS -->
+
+            <div class="details">
+
+
+                <div class="detail">
+
+                    <div class="detail-icon">
+                        🛎️
+                    </div>
+
+                    <div class="detail-text">
+
+                        <span>
+                            Room Type
+                        </span>
+
+                        <strong id="roomType">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-icon">
+                        💳
+                    </div>
+
+                    <div class="detail-text">
+
+                        <span>
+                            Transaction
+                        </span>
+
+                        <strong>
+                            Successful
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-icon">
+                        🧾
+                    </div>
+
+                    <div class="detail-text">
+
+                        <span>
+                            Booking Status
+                        </span>
+
+                        <strong>
+                            Confirmed
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-icon">
+                        🔐
+                    </div>
+
+                    <div class="detail-text">
+
+                        <span>
+                            Payment Status
+                        </span>
+
+                        <strong>
+                            Paid
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TOTAL -->
+
+            <div class="total-box">
+
+                <span>
+                    Total Amount Paid
+                </span>
+
+                <strong id="amount">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+                <a href="confirmation.html"
+                   class="btn primary">
+
+                    View Booking Confirmation
+
+                </a>
+
+
+                <a href="home.html"
+                   class="btn secondary">
+
+                    Back to Home
+
+                </a>
+
+            </div>
+
+
+            <div class="note">
+
+                A booking confirmation will be available with
+                your complete stay details.
+
+                <br>
+
+                Thank you for booking with Grand Stay.
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* GET PAYMENT DATA */
+
+const paymentData =
+    JSON.parse(localStorage.getItem("paymentData"));
+
+const bookingData =
+    JSON.parse(localStorage.getItem("bookingData"));
+
+const searchDetails =
+    JSON.parse(localStorage.getItem("searchDetails"));
+
+
+
+/* PAYMENT */
+
+if(paymentData){
+
+    document.getElementById("paymentMethod")
+        .textContent =
+        paymentData.method || "-";
+
+
+    document.getElementById("paymentDate")
+        .textContent =
+        paymentData.paymentDate || "-";
+
+
+    document.getElementById("amount")
+        .textContent =
+        "₹" +
+        Number(paymentData.amount || 0)
+        .toLocaleString();
 
 }
 
 
-/* Display details */
 
-document.getElementById("customerName").innerText =
-    bookingData.customerName;
+/* ROOM */
 
-document.getElementById("roomType").innerText =
-    bookingData.roomType;
+if(bookingData){
 
-document.getElementById("days").innerText =
-    bookingData.days + " Day(s)";
-
-document.getElementById("paymentMode").innerText =
-    paymentMode;
-
-document.getElementById("totalAmount").innerText =
-    "Total Amount : ₹ " +
-    bookingData.totalAmount;
+    document.getElementById("roomName")
+        .textContent =
+        bookingData.roomName || "-";
 
 
-/* Save Booking History */
-
-let history =
-    JSON.parse(
-        localStorage.getItem("bookingHistory")
-    ) || [];
+    document.getElementById("roomType")
+        .textContent =
+        bookingData.roomName || "-";
 
 
-history.push({
-
-    customerName: bookingData.customerName,
-
-    phoneNumber: bookingData.phoneNumber,
-
-    roomType: bookingData.roomType,
-
-    checkIn: bookingData.checkIn,
-
-    checkOut: bookingData.checkOut,
-
-    guests: bookingData.guests,
-
-    days: bookingData.days,
-
-    totalAmount: bookingData.totalAmount,
-
-    paymentMode: paymentMode,
-
-    status: "Confirmed"
-
-});
+    const image =
+        document.getElementById("roomImage");
 
 
-localStorage.setItem(
-    "bookingHistory",
-    JSON.stringify(history)
-);
+    if(bookingData.roomName === "Deluxe Room"){
+
+        image.src =
+            "images/deluxe.jpg";
+
+    }
+
+    else if(bookingData.roomName === "Executive Room"){
+
+        image.src =
+            "images/executive.jpg";
+
+    }
+
+    else if(bookingData.roomName === "Luxury Suite"){
+
+        image.src =
+            "images/suite.jpg";
+
+    }
+
+}
 
 
-/* Back to Home */
 
-function goHome() {
+/* SEARCH DETAILS */
 
-    window.location.href =
-        "home.html";
+if(searchDetails){
+
+    document.getElementById("destination")
+        .textContent =
+        searchDetails.destination || "-";
+
+
+    document.getElementById("checkin")
+        .textContent =
+        searchDetails.checkin || "-";
+
+
+    document.getElementById("checkout")
+        .textContent =
+        searchDetails.checkout || "-";
+
+
+    document.getElementById("guests")
+        .textContent =
+        searchDetails.guests || "-";
 
 }
 
 </script>
+
+
 </body>
 </html>

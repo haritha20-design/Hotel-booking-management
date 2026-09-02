@@ -1,113 +1,559 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-    <title>Contact Us</title>
 
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
+    <title>Contact Us - Grand Stay</title>
+
+
     <style>
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #eef2ff;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
         }
 
-        header {
-            background-color: #1748d1;
-            color: white;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        body{
+            background:#f4f8fc;
+            color:#1f2937;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-            font-style: italic;
+
+        /* ================= NAVBAR ================= */
+
+        .navbar{
+            min-height:75px;
+            background:white;
+
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+
+            padding:0 7%;
+
+            box-shadow:0 2px 10px rgba(0,0,0,0.08);
         }
 
-        nav {
-            background-color: #43d51b;
-            padding: 12px;
-            text-align: center;
+
+        .logo{
+            display:flex;
+            align-items:center;
+            gap:10px;
         }
 
-        nav a {
-            color: #222;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 20px;
+
+        .logo img{
+            width:45px;
+            height:45px;
+            object-fit:contain;
         }
 
-        nav a:hover {
-            color: white;
+
+        .logo h2{
+            color:#006ce4;
+            font-size:22px;
         }
 
-        h2 {
-            text-align: center;
-            color: #222;
-            margin: 30px;
+
+        .nav-links{
+            display:flex;
+            gap:25px;
         }
 
-        .contact-box {
-            width: 500px;
-            margin: 40px auto;
-            background-color: #fffbea;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px gray;
-            box-sizing: border-box;
+
+        .nav-links a{
+            text-decoration:none;
+            color:#374151;
+
+            font-size:15px;
+            font-weight:600;
+
+            transition:0.3s;
         }
 
-        .contact-box h3 {
-            text-align: center;
-            color: #1748d1;
-            margin-top: 0;
+
+        .nav-links a:hover{
+            color:#006ce4;
         }
 
-        .contact-box > p {
-            text-align: center;
-            color: #555;
+
+
+        /* ================= MAIN ================= */
+
+        .container{
+            width:90%;
+            max-width:1100px;
+
+            margin:45px auto;
         }
 
-        .contact-details {
-            margin-top: 30px;
+
+        /* ================= HEADING ================= */
+
+        .heading{
+            text-align:center;
+            margin-bottom:35px;
         }
 
-        .contact-details p {
-            margin: 25px 0;
-            font-size: 17px;
+
+        .heading h1{
+            font-size:32px;
+            color:#111827;
+            margin-bottom:10px;
         }
 
-        .contact-details a {
-            color: #168bd5;
-            text-decoration: none;
+
+        .heading p{
+            color:#6b7280;
+            font-size:15px;
         }
 
-        .contact-details a:hover {
-            text-decoration: underline;
+
+
+        /* ================= CONTACT AREA ================= */
+
+        .contact-area{
+            display:grid;
+
+            grid-template-columns:1fr 1.2fr;
+
+            gap:25px;
         }
 
-        /* Phone Screen */
 
-        @media (max-width: 600px) {
 
-            nav a {
-                display: block;
-                margin: 10px;
+        /* ================= CONTACT INFORMATION ================= */
+
+        .contact-info{
+            background:#003b7a;
+            color:white;
+
+            padding:35px;
+
+            border-radius:16px;
+
+            box-shadow:0 5px 20px rgba(0,0,0,0.08);
+        }
+
+
+        .contact-info h2{
+            font-size:25px;
+            margin-bottom:12px;
+        }
+
+
+        .contact-info > p{
+            color:#dbeafe;
+
+            line-height:1.6;
+
+            margin-bottom:25px;
+        }
+
+
+
+        /* ================= INFO CARD ================= */
+
+        .info-card{
+            display:flex;
+
+            align-items:flex-start;
+
+            gap:15px;
+
+            background:rgba(255,255,255,0.10);
+
+            padding:18px;
+
+            margin-bottom:15px;
+
+            border-radius:12px;
+
+            transition:0.3s;
+        }
+
+
+        .info-card:hover{
+            background:rgba(255,255,255,0.18);
+
+            transform:translateY(-2px);
+        }
+
+
+
+        /* ================= ICON ================= */
+
+        .icon{
+            min-width:42px;
+            height:42px;
+
+            background:white;
+
+            border-radius:10px;
+
+            display:flex;
+
+            align-items:center;
+            justify-content:center;
+
+            font-size:20px;
+        }
+
+
+
+        /* ================= INFO CONTENT ================= */
+
+        .info-content h4{
+            margin-bottom:6px;
+
+            font-size:15px;
+        }
+
+
+        .info-content p{
+            color:#dbeafe;
+
+            font-size:14px;
+
+            line-height:1.5;
+        }
+
+
+        /* CLICKABLE LINKS */
+
+        .info-content a{
+            text-decoration:none;
+
+            color:white;
+
+            font-size:14px;
+
+            font-weight:500;
+
+            line-height:1.5;
+
+            transition:0.3s;
+        }
+
+
+        .info-content a:hover{
+            text-decoration:underline;
+        }
+
+
+
+        /* ================= FORM ================= */
+
+        .contact-form{
+            background:white;
+
+            padding:35px;
+
+            border-radius:16px;
+
+            box-shadow:0 5px 20px rgba(0,0,0,0.08);
+        }
+
+
+        .contact-form h2{
+            color:#111827;
+
+            margin-bottom:25px;
+
+            font-size:24px;
+        }
+
+
+        .form-group{
+            margin-bottom:18px;
+        }
+
+
+        .form-group label{
+            display:block;
+
+            font-size:14px;
+
+            font-weight:bold;
+
+            margin-bottom:7px;
+        }
+
+
+        .form-group input,
+        .form-group textarea{
+
+            width:100%;
+
+            padding:13px;
+
+            border:1px solid #d1d5db;
+
+            border-radius:8px;
+
+            outline:none;
+
+            font-size:14px;
+
+            transition:0.3s;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus{
+
+            border-color:#006ce4;
+
+            box-shadow:0 0 0 3px rgba(0,108,228,0.08);
+        }
+
+
+        textarea{
+
+            height:120px;
+
+            resize:none;
+        }
+
+
+
+        /* ================= SEND BUTTON ================= */
+
+        .send-btn{
+
+            width:100%;
+
+            padding:14px;
+
+            border:none;
+
+            border-radius:8px;
+
+            background:#006ce4;
+
+            color:white;
+
+            font-size:15px;
+
+            font-weight:bold;
+
+            cursor:pointer;
+
+            transition:0.3s;
+        }
+
+
+        .send-btn:hover{
+
+            background:#0057bd;
+
+            transform:translateY(-1px);
+        }
+
+
+        #message{
+
+            text-align:center;
+
+            margin-top:15px;
+
+            color:#15803d;
+
+            font-weight:bold;
+
+            font-size:14px;
+        }
+
+
+
+        /* ================= FOOTER ================= */
+
+        footer{
+
+            background:#003b7a;
+
+            color:white;
+
+            text-align:center;
+
+            padding:25px;
+
+            margin-top:60px;
+
+            font-size:14px;
+        }
+
+
+
+        /* ================= TABLET ================= */
+
+        @media(max-width:900px){
+
+            .navbar{
+
+                padding:15px 5%;
             }
 
-            .contact-box {
-                width: 90%;
-                padding: 25px;
-                margin: 30px auto;
+
+            .contact-area{
+
+                grid-template-columns:1fr;
+            }
+
+        }
+
+
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width:600px){
+
+            .navbar{
+
+                flex-direction:column;
+
+                gap:12px;
+
+                padding:15px 5%;
+            }
+
+
+            .logo img{
+
+                width:40px;
+                height:40px;
+            }
+
+
+            .logo h2{
+
+                font-size:19px;
+            }
+
+
+            .nav-links{
+
+                width:100%;
+
+                justify-content:center;
+
+                flex-wrap:wrap;
+
+                gap:8px 18px;
+            }
+
+
+            .nav-links a{
+
+                font-size:13px;
+            }
+
+
+            .container{
+
+                width:92%;
+
+                margin:30px auto;
+            }
+
+
+            .heading h1{
+
+                font-size:26px;
+            }
+
+
+            .heading p{
+
+                font-size:14px;
+
+                line-height:1.5;
+            }
+
+
+            .contact-info,
+            .contact-form{
+
+                padding:22px;
+
+                border-radius:12px;
+            }
+
+
+            .contact-info h2{
+
+                font-size:22px;
+            }
+
+
+            .info-card{
+
+                padding:15px;
+
+                gap:12px;
+            }
+
+
+            .info-content a,
+            .info-content p{
+
+                font-size:13px;
+            }
+
+
+            .form-group input,
+            .form-group textarea{
+
+                font-size:16px;
+            }
+
+
+            footer{
+
+                margin-top:35px;
+
+                padding:20px;
+
+                font-size:13px;
+            }
+
+        }
+
+
+
+        /* ================= SMALL MOBILE ================= */
+
+        @media(max-width:380px){
+
+            .nav-links{
+
+                gap:8px 12px;
+            }
+
+
+            .nav-links a{
+
+                font-size:12px;
+            }
+
+
+            .contact-info,
+            .contact-form{
+
+                padding:18px;
+            }
+
+
+            .info-card{
+
+                gap:10px;
             }
 
         }
@@ -119,81 +565,322 @@
 
 <body>
 
-    <header>
 
-        <h1>ROYAL HOTEL</h1>
+    <!-- ================= NAVBAR ================= -->
 
-    </header>
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <img src="images/logo.png"
+                 alt="Grand Stay Logo">
+
+            <h2>GRAND STAY</h2>
+
+        </div>
 
 
-    <nav>
+        <div class="nav-links">
 
-        <a href="home.html"><b>Home</b></a> |
+            <a href="home.html">Home</a>
 
-        <a href="booking.html"><b>Room Booking</b></a> |
+            <a href="booking.html">Rooms</a>
 
-        <a href="confirmation.html"><b>Confirmation</b></a> |
+            <a href="bookinghistory.html">History</a>
 
-        <a href="payment.html"><b>Payment</b></a> |
+            <a href="contact.html">Contact</a>
 
-        <a href="bookinghistory.html"><b>history</b></a> |
-
-        <a href="contact.html"><b>contact us</b></a> |
-
-        <a href="logout.html"><b>Logout</b></a> |
+            <a href="logout.html">logout</a>
+        </div>
 
     </nav>
 
 
-    <h2>CONTACT US</h2>
+
+    <!-- ================= MAIN ================= -->
+
+    <div class="container">
 
 
-    <div class="contact-box">
+        <!-- HEADING -->
 
-        <h3>ROYAL HOTEL</h3>
+        <div class="heading">
 
-        <p>
-            We are happy to assist you.
-            Contact us for any queries.
-        </p>
-
-
-        <div class="contact-details">
+            <h1>Contact Us</h1>
 
             <p>
-                <b>📞 Phone:</b>
-                <a href="tel:9876543210">
-                    9876543210
-                </a>
+                We're here to help. Get in touch with Grand Stay.
             </p>
 
-
-            <p>
-                <b>✉ Email:</b>
-                <a href="mailto:royalhotel@gmail.com">
-                    royalhotel@gmail.com
-                </a>
-            </p>
+        </div>
 
 
-            <p>
-                <b>📍 Address:</b>
-                <a href="https://www.google.com/maps/search/?api=1&query=Theni,Tamil+Nadu"
-                   target="_blank">
-                    Royal Hotel, Theni, Tamil Nadu
-                </a>
-            </p>
+
+        <!-- CONTACT AREA -->
+
+        <div class="contact-area">
 
 
-            <p>
-                <b>🕐 Working Hours:</b>
-                24 Hours / 7 Days
-            </p>
+            <!-- ================= LEFT SIDE ================= -->
+
+            <div class="contact-info">
+
+                <h2>Contact Information</h2>
+
+                <p>
+                    Have questions about your booking?
+                    Feel free to contact our hotel support team.
+                </p>
+
+
+
+                <!-- ADDRESS -->
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        📍
+                    </div>
+
+
+                    <div class="info-content">
+
+                        <h4>Address</h4>
+
+
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=Grand+Stay+Hotel+Tamil+Nadu"
+                            target="_blank">
+
+                            Grand Stay Hotel<br>
+                            Main Road, Tamil Nadu, India
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PHONE -->
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        📞
+                    </div>
+
+
+                    <div class="info-content">
+
+                        <h4>Phone Number</h4>
+
+
+                        <a href="tel:+919876543210">
+
+                            +91 98765 43210
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        ✉️
+                    </div>
+
+
+                    <div class="info-content">
+
+                        <h4>Email Address</h4>
+
+
+                        <a href="mailto:support@grandstay.com">
+
+                            support@grandstay.com
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SUPPORT HOURS -->
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        🕐
+                    </div>
+
+
+                    <div class="info-content">
+
+                        <h4>Support Hours</h4>
+
+                        <p>
+                            24 × 7 Customer Support
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= RIGHT SIDE ================= -->
+
+            <div class="contact-form">
+
+                <h2>Send us a Message</h2>
+
+
+                <form id="contactForm">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- SUBJECT -->
+
+                    <div class="form-group">
+
+                        <label for="subject">
+                            Subject
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="Enter subject"
+                            required>
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-group">
+
+                        <label for="msg">
+                            Message
+                        </label>
+
+
+                        <textarea
+                            id="msg"
+                            placeholder="Write your message..."
+                            required></textarea>
+
+                    </div>
+
+
+
+                    <!-- BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="send-btn">
+
+                        Send Message
+
+                    </button>
+
+
+                    <p id="message"></p>
+
+                </form>
+
+            </div>
 
         </div>
 
     </div>
 
-</body>
 
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        © 2026 GRAND STAY. All Rights Reserved.
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        document
+        .getElementById("contactForm")
+        .addEventListener("submit", function(event){
+
+            event.preventDefault();
+
+
+            document
+            .getElementById("message")
+            .textContent =
+            "✓ Your message has been submitted successfully!";
+
+
+            this.reset();
+
+        });
+
+    </script>
+
+
+</body>
 </html>

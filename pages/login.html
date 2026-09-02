@@ -1,205 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <title>HOTEL BOOKING MANAGEMENT</title>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Login - Grand Stay</title>
 
     <style>
-
-        body {
-            background-color: #eeeeff;
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f5f7fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 1000px;
+            min-height: 590px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Left Image */
+        .left-section {
+            width: 48%;
+            background-image: url("images/hotel.png");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .left-section::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 45, 85, 0.55);
+        }
+
+        .welcome-text {
+            position: absolute;
+            z-index: 2;
+            left: 40px;
+            right: 40px;
+            bottom: 50px;
+            color: white;
+        }
+
+        .welcome-text h2 {
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .welcome-text p {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Right Section */
+        .right-section {
+            width: 52%;
+            padding: 55px 50px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
         }
 
         h1 {
-            text-align: center;
-            color: #333366;
-            margin-top: 35px;
+            color: #12395b;
+            font-size: 30px;
+            margin-bottom: 8px;
         }
 
-        .login-box {
-            width: 350px;
-            margin: 45px auto;
-            padding: 30px;
-            background-color: #fffbee;
-            border-radius: 15px;
-            box-shadow: 0px 5px 20px gray;
-        }
-
-        .login-box p {
-            text-align: center;
-            color: #666666;
+        .subtitle {
+            color: #777;
+            font-size: 14px;
             margin-bottom: 30px;
         }
 
-        label {
-            font-size: 18px;
-            color: #333333;
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        input[type="text"],
-        input[type="password"] {
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 17px;
+        }
+
+        .input-box input {
             width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            box-sizing: border-box;
-            border: 1px solid #cccccc;
-            border-radius: 6px;
-        }
-
-        input[type="text"]:focus,
-        input[type="password"]:focus {
+            height: 52px;
+            border: 1px solid #d0d8e2;
+            border-radius: 8px;
+            padding: 0 15px 0 43px;
+            font-size: 15px;
             outline: none;
-            border: 2px solid #789ee8;
         }
 
-        a {
-            display: block;
-            text-align: center;
-            color: #5d8dd8;
-            text-decoration: none;
+        .input-box input:focus {
+            border-color: #1976d2;
+            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
         }
 
-        input[type="submit"] {
-            display: block;
-            width: 75%;
-            margin: auto;
-            padding: 11px;
-            background-color: #4f4fa3;
-            color: white;
+        /* Password */
+        .password-box {
+            position: relative;
+        }
+
+        .password-box input {
+            width: 100%;
+            height: 52px;
+            border: 1px solid #d0d8e2;
+            border-radius: 8px;
+            padding: 0 45px 0 15px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .password-box input:focus {
+            border-color: #1976d2;
+            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+        }
+
+        .show-password {
+            position: absolute;
+            right: 13px;
+            top: 50%;
+            transform: translateY(-50%);
             border: none;
-            border-radius: 20px;
-            font-size: 16px;
+            background: none;
             cursor: pointer;
+            font-size: 17px;
         }
 
-        input[type="submit"]:hover {
-            background-color: #527fd0;
+        /* Forgot */
+        .forgot {
+            text-align: right;
+            margin-bottom: 22px;
+        }
+
+        .forgot a {
+            color: #1976d2;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .forgot a:hover {
+            text-decoration: underline;
+        }
+
+        /* Login Button */
+        .login-btn {
+            width: 100%;
+            height: 52px;
+            border: none;
+            border-radius: 8px;
+            background: #1976d2;
             color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
+        .login-btn:hover {
+            background: #125ca5;
+        }
 
-        /* Mobile Screen */
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
 
-        @media (max-width: 600px) {
+        .divider {
+            text-align: center;
+            color: #aaa;
+            font-size: 13px;
+            margin: 28px 0 20px;
+        }
 
-            body {
-                padding: 15px;
+        .register {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .register a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .security {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 18px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 12px;
+        }
+
+        /* Mobile */
+        @media (max-width: 750px) {
+
+            .left-section {
+                display: none;
             }
 
-            .login-box {
-                width: 90%;
-                padding: 25px 20px;
-                margin: 30px auto;
-            }
-
-            h1 {
-                font-size: 24px;
-            }
-
-            input {
+            .right-section {
                 width: 100%;
-                box-sizing: border-box;
+                padding: 40px 25px;
             }
 
+            .login-container {
+                min-height: auto;
+            }
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-    <h1>HOTEL MANAGEMENT SYSTEM</h1>
+    <div class="login-container">
+
+        <!-- Left -->
+        <div class="left-section">
+
+            <div class="welcome-text">
+                <h2>Welcome Back</h2>
+
+                <p>
+                    Sign in to continue your journey
+                    with Grand Stay and manage your hotel booking easily.
+                </p>
+            </div>
+
+        </div>
 
 
-    <div class="login-box">
+        <!-- Right -->
+        <div class="right-section">
 
-        <p>
-            <small>Please Login Here</small>
-        </p>
+            <img src="images/logo.png"
+                 alt="Grand Stay Logo"
+                 class="logo">
 
+            <h1>Welcome Back</h1>
 
-        <!-- Login Form -->
-
-        <form id="loginForm">
-
-            <label for="username">
-                <b>Username</b>
-            </label>
-
-            <br><br>
-
-            <input type="text"
-                   id="username"
-                   placeholder="Enter Username"
-                   required>
-
-            <br><br>
+            <p class="subtitle">
+                Sign in to your Grand Stay account
+            </p>
 
 
-            <label for="password">
-                <b>Password</b>
-            </label>
+            <form id="loginForm">
 
-            <br><br>
+                <!-- Email -->
+                <div class="form-group">
 
-            <input type="password"
-                   id="password"
-                   placeholder="Enter your password"
-                   required>
+                    <label for="email">
+                        Email Address
+                    </label>
 
-            <br><br>
+                    <div class="input-box">
+
+                        <span class="input-icon">✉️</span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email address"
+                            required>
+
+                    </div>
+
+                </div>
 
 
-            <a href="forgotpass.html">
-                Forgot Password?
-            </a>
+                <!-- Password -->
+                <div class="form-group">
 
-            <br><br>
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            onclick="togglePassword()">
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
 
 
-            <input type="submit"
-                   value="Login">
+                <!-- Forgot Password -->
+                <div class="forgot">
 
-        </form>
+                    <a href="forgotpass.html">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- Login -->
+                <button type="submit" class="login-btn">
+                    Sign In
+                </button>
+
+                <p id="message" class="message"></p>
+
+            </form>
+
+
+            <div class="divider">
+                New to Grand Stay?
+            </div>
+
+
+            <div class="register">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Create Account
+                </a>
+
+            </div>
+
+
+            <div class="security">
+                🔒 Your login information is secure.
+            </div>
+
+        </div>
 
     </div>
 
 
-    <!-- JavaScript -->
-
     <script>
 
+        // Show / Hide Password
+        function togglePassword() {
+
+            const password =
+                document.getElementById("password");
+
+            const button =
+                document.querySelector(".show-password");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+                button.textContent = "🙌🏻";
+
+            } else {
+
+                password.type = "password";
+                button.textContent = "👁";
+
+            }
+        }
+
+
+        // Login
         document.getElementById("loginForm")
         .addEventListener("submit", function(event) {
 
             event.preventDefault();
 
-            let username =
-                document.getElementById("username").value;
+            const email =
+                document.getElementById("email").value.trim();
 
-            let password =
+            const password =
                 document.getElementById("password").value;
 
+            const message =
+                document.getElementById("message");
 
-            if (username !== "" && password !== "") {
 
-                localStorage.setItem(
-                    "username",
-                    username
-                );
+            const savedUser =
+                localStorage.getItem("hotelUser");
 
-                window.location.href = "home.html";
+
+            if (!savedUser) {
+
+                message.style.color = "red";
+
+                message.textContent =
+                    "No registered account found.";
+
+                return;
+            }
+
+
+            const user =
+                JSON.parse(savedUser);
+
+
+            if (
+                email.toLowerCase() ===
+                user.email.toLowerCase()
+                &&
+                password === user.password
+            ) {
+
+                message.style.color = "green";
+
+                message.textContent =
+                    "Login successful!";
+
+
+                setTimeout(function() {
+
+                    window.location.href =
+                        "home.html";
+
+                }, 1000);
+
+            } else {
+
+                message.style.color = "red";
+
+                message.textContent =
+                    "Invalid email or password.";
 
             }
 
@@ -207,7 +474,5 @@
 
     </script>
 
-
 </body>
-
 </html>

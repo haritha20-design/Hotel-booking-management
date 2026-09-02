@@ -1,15 +1,242 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>splash page</title>
-        <meta http-equiv="refresh" content="3;url=login.html">
-    </head>
-    <body>
-        <center>
-            <br><br><br><br><br><br>
-            <h4><b>ROYAL HOTEL</b></h4><br>
-            <img src="images/logo.png">
-            <p><small>loading......</small></p>
-        </center>
-    </body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grand Stay - Hotel Booking</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(
+                135deg,
+                #003b95,
+                #0071c2
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+        }
+
+        .splash {
+            text-align: center;
+
+            animation: fadeIn 1.5s ease;
+        }
+
+        /* LOGO */
+
+        .logo {
+            width: 110px;
+            height: 110px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 0 auto 25px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.2);
+
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 78px;
+            height: 78px;
+
+            object-fit: contain;
+        }
+
+        /* HOTEL NAME */
+
+        h1 {
+            font-size: 42px;
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+        }
+
+        /* SUBTITLE */
+
+        .subtitle {
+            font-size: 17px;
+
+            opacity: 0.9;
+
+            letter-spacing: 1px;
+        }
+
+        /* LOADING */
+
+        .loading {
+            margin-top: 40px;
+        }
+
+        .loading-text {
+            font-size: 13px;
+            opacity: 0.8;
+
+            margin-bottom: 10px;
+        }
+
+        .loader {
+            width: 180px;
+            height: 4px;
+
+            background: rgba(255, 255, 255, 0.3);
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            margin: auto;
+        }
+
+        .loader-bar {
+            width: 0%;
+            height: 100%;
+
+            background: white;
+
+            animation: loading 2.5s linear forwards;
+        }
+
+        /* ANIMATION */
+
+        @keyframes loading {
+
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+
+        }
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 500px) {
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .logo {
+                width: 90px;
+                height: 90px;
+            }
+
+            .logo img {
+                width: 65px;
+                height: 65px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="splash">
+
+        <!-- HOTEL LOGO -->
+
+        <div class="logo">
+
+            <img
+                src="images/logo.png"
+                alt="Grand Stay Logo">
+
+        </div>
+
+
+        <!-- HOTEL NAME -->
+
+        <h1>
+            GRAND STAY
+        </h1>
+
+
+        <p class="subtitle">
+            Hotel Booking Management
+        </p>
+
+
+        <!-- LOADING -->
+
+        <div class="loading">
+
+            <p class="loading-text">
+                Welcome...
+            </p>
+
+            <div class="loader">
+
+                <div class="loader-bar"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // SPLASH PAGE → WELCOME PAGE
+
+        setTimeout(function() {
+
+            window.location.href = "welcome.html";
+
+        }, 3000);
+
+    </script>
+
+
+</body>
+
 </html>
