@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Login - Grand Stay</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -16,75 +19,78 @@
 
         body {
             min-height: 100vh;
-            background: #f5f7fb;
+            background: #f4f8fd;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 25px;
         }
+
+        /* Main Container */
 
         .login-container {
-            width: 100%;
-            max-width: 1000px;
-            min-height: 590px;
+            width: 900px;
+            min-height: 560px;
             background: white;
-            border-radius: 20px;
+            border-radius: 22px;
             overflow: hidden;
-            display: flex;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0 15px 40px rgba(0, 40, 80, 0.15);
         }
 
-        /* Left Image */
-        .left-section {
-            width: 48%;
-            background-image: url("images/hotel.png");
+
+        /* Left Side */
+
+        .login-image {
+            position: relative;
+            background-image:
+                linear-gradient(
+                    rgba(0, 45, 90, 0.55),
+                    rgba(0, 45, 90, 0.55)
+                ),
+                url("images/hotel.png");
+
             background-size: cover;
             background-position: center;
-            position: relative;
-        }
 
-        .left-section::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 45, 85, 0.55);
-        }
-
-        .welcome-text {
-            position: absolute;
-            z-index: 2;
-            left: 40px;
-            right: 40px;
-            bottom: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             color: white;
+            padding: 40px;
         }
 
-        .welcome-text h2 {
-            font-size: 34px;
-            margin-bottom: 12px;
+        .image-content h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
         }
 
-        .welcome-text p {
-            font-size: 15px;
+        .image-content p {
+            font-size: 16px;
             line-height: 1.7;
         }
 
-        /* Right Section */
-        .right-section {
-            width: 52%;
+
+        /* Right Side */
+
+        .login-form {
             padding: 55px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+            margin-bottom: 15px;
         }
 
-        h1 {
-            color: #12395b;
+        .login-form h2 {
+            color: #003b73;
             font-size: 30px;
             margin-bottom: 8px;
         }
@@ -92,276 +98,318 @@
         .subtitle {
             color: #777;
             font-size: 14px;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+
+        /* Input */
+
+        .input-group {
+            margin-bottom: 18px;
         }
 
-        .form-group label {
+        .input-group label {
             display: block;
-            font-size: 14px;
-            font-weight: 600;
             color: #333;
+            font-size: 14px;
+            font-weight: bold;
             margin-bottom: 8px;
         }
 
-        .input-box {
-            position: relative;
-        }
-
-        .input-icon {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 17px;
-        }
-
-        .input-box input {
+        .input-group input {
             width: 100%;
-            height: 52px;
-            border: 1px solid #d0d8e2;
-            border-radius: 8px;
-            padding: 0 15px 0 43px;
-            font-size: 15px;
+            padding: 14px;
+            border: 1px solid #d5dce5;
+            border-radius: 9px;
             outline: none;
+            font-size: 15px;
         }
 
-        .input-box input:focus {
-            border-color: #1976d2;
-            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+        .input-group input:focus {
+            border-color: #0056a6;
+            box-shadow: 0 0 0 3px rgba(0, 86, 166, 0.08);
         }
+
 
         /* Password */
+
         .password-box {
             position: relative;
         }
 
         .password-box input {
-            width: 100%;
-            height: 52px;
-            border: 1px solid #d0d8e2;
-            border-radius: 8px;
-            padding: 0 45px 0 15px;
-            font-size: 15px;
-            outline: none;
-        }
-
-        .password-box input:focus {
-            border-color: #1976d2;
-            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+            padding-right: 50px;
         }
 
         .show-password {
             position: absolute;
-            right: 13px;
+            right: 14px;
             top: 50%;
             transform: translateY(-50%);
             border: none;
             background: none;
             cursor: pointer;
-            font-size: 17px;
+            font-size: 18px;
         }
 
-        /* Forgot */
+
+        /* Forgot Password */
+
         .forgot {
             text-align: right;
-            margin-bottom: 22px;
+            margin-top: -5px;
+            margin-bottom: 20px;
         }
 
         .forgot a {
-            color: #1976d2;
+            color: #0056a6;
             text-decoration: none;
             font-size: 13px;
+            font-weight: bold;
         }
 
         .forgot a:hover {
             text-decoration: underline;
         }
 
+
         /* Login Button */
+
         .login-btn {
             width: 100%;
-            height: 52px;
-            border: none;
-            border-radius: 8px;
-            background: #1976d2;
+            padding: 14px;
+            background: #003b73;
             color: white;
+            border: none;
+            border-radius: 9px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.3s;
         }
 
         .login-btn:hover {
-            background: #125ca5;
+            background: #0056a6;
         }
+
+
+        /* Message */
 
         .message {
-            text-align: center;
             margin-top: 15px;
-            font-size: 14px;
-        }
-
-        .divider {
-            text-align: center;
-            color: #aaa;
-            font-size: 13px;
-            margin: 28px 0 20px;
-        }
-
-        .register {
             text-align: center;
             font-size: 14px;
-            color: #555;
-        }
-
-        .register a {
-            color: #1976d2;
-            text-decoration: none;
             font-weight: bold;
+            min-height: 20px;
         }
+
+
+        /* Register */
+
+        .register-text {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .register-text a {
+            color: #0056a6;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .register-text a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Security */
 
         .security {
             text-align: center;
-            margin-top: 30px;
-            padding-top: 18px;
-            border-top: 1px solid #eee;
-            color: #999;
+            margin-top: 20px;
+            color: #888;
             font-size: 12px;
         }
 
+
         /* Mobile */
-        @media (max-width: 750px) {
 
-            .left-section {
-                display: none;
-            }
-
-            .right-section {
-                width: 100%;
-                padding: 40px 25px;
-            }
+        @media (max-width: 768px) {
 
             .login-container {
-                min-height: auto;
+                width: 100%;
+                grid-template-columns: 1fr;
+            }
+
+            .login-image {
+                min-height: 230px;
+            }
+
+            .image-content h1 {
+                font-size: 30px;
+            }
+
+            .login-form {
+                padding: 40px 30px;
             }
         }
+
+
+        @media (max-width: 480px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .login-image {
+                min-height: 200px;
+            }
+
+            .login-form {
+                padding: 30px 22px;
+            }
+
+            .login-form h2 {
+                font-size: 26px;
+            }
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+
     <div class="login-container">
 
-        <!-- Left -->
-        <div class="left-section">
 
-            <div class="welcome-text">
-                <h2>Welcome Back</h2>
+        <!-- LEFT IMAGE -->
+
+        <div class="login-image">
+
+            <div class="image-content">
+
+                <h1>GRAND STAY</h1>
 
                 <p>
-                    Sign in to continue your journey
-                    with Grand Stay and manage your hotel booking easily.
+                    Welcome back!<br>
+                    Sign in to continue your hotel
+                    booking journey.
                 </p>
+
             </div>
 
         </div>
 
 
-        <!-- Right -->
-        <div class="right-section">
+
+        <!-- LOGIN FORM -->
+
+        <div class="login-form">
+
 
             <img src="images/logo.png"
                  alt="Grand Stay Logo"
                  class="logo">
 
-            <h1>Welcome Back</h1>
+
+            <h2>Welcome Back</h2>
 
             <p class="subtitle">
                 Sign in to your Grand Stay account
             </p>
 
 
-            <form id="loginForm">
 
-                <!-- Email -->
-                <div class="form-group">
+            <!-- Email -->
 
-                    <label for="email">
-                        Email Address
-                    </label>
+            <div class="input-group">
 
-                    <div class="input-box">
+                <label for="email">
+                    Email Address
+                </label>
 
-                        <span class="input-icon">✉️</span>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                >
 
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter your email address"
-                            required>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Password -->
-                <div class="form-group">
-
-                    <label for="password">
-                        Password
-                    </label>
-
-                    <div class="password-box">
-
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Enter your password"
-                            required>
-
-                        <button
-                            type="button"
-                            class="show-password"
-                            onclick="togglePassword()">
-                            👁
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Forgot Password -->
-                <div class="forgot">
-
-                    <a href="forgotpass.html">
-                        Forgot Password?
-                    </a>
-
-                </div>
-
-
-                <!-- Login -->
-                <button type="submit" class="login-btn">
-                    Sign In
-                </button>
-
-                <p id="message" class="message"></p>
-
-            </form>
-
-
-            <div class="divider">
-                New to Grand Stay?
             </div>
 
 
-            <div class="register">
+
+            <!-- Password -->
+
+            <div class="input-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="password-box">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                    >
+
+                    <button
+                        type="button"
+                        class="show-password"
+                        onclick="togglePassword()"
+                        id="eyeButton">
+
+                        👁️
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Forgot Password -->
+
+            <div class="forgot">
+
+                <a href="forgotpass.html">
+                    Forgot Password?
+                </a>
+
+            </div>
+
+
+
+            <!-- Login -->
+
+            <button
+                class="login-btn"
+                onclick="loginUser()">
+
+                Sign In
+
+            </button>
+
+
+
+            <!-- Message -->
+
+            <div
+                id="message"
+                class="message">
+            </div>
+
+
+
+            <!-- Register -->
+
+            <p class="register-text">
 
                 Don't have an account?
 
@@ -369,110 +417,151 @@
                     Create Account
                 </a>
 
-            </div>
+            </p>
 
 
-            <div class="security">
-                🔒 Your login information is secure.
-            </div>
+
+            <p class="security">
+                🔒 Your account information is kept secure.
+            </p>
+
 
         </div>
 
     </div>
 
 
-    <script>
 
-        // Show / Hide Password
-        function togglePassword() {
+<script>
 
-            const password =
-                document.getElementById("password");
 
-            const button =
-                document.querySelector(".show-password");
+    /* Show / Hide Password */
 
-            if (password.type === "password") {
+    function togglePassword() {
 
-                password.type = "text";
-                button.textContent = "🙌🏻";
+        const password =
+            document.getElementById("password");
 
-            } else {
+        const eye =
+            document.getElementById("eyeButton");
 
-                password.type = "password";
-                button.textContent = "👁";
 
-            }
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            eye.textContent = "🙈";
+
+        } else {
+
+            password.type = "password";
+
+            eye.textContent = "👁️";
+
+        }
+
+    }
+
+
+
+    /* Login */
+
+    function loginUser() {
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const password =
+            document.getElementById("password").value;
+
+        const message =
+            document.getElementById("message");
+
+
+        /* Empty field validation */
+
+        if (email === "" || password === "") {
+
+            message.style.color = "#d93025";
+
+            message.textContent =
+                "Please enter email and password.";
+
+            return;
+
         }
 
 
-        // Login
-        document.getElementById("loginForm")
-        .addEventListener("submit", function(event) {
+        /* Get registered user */
 
-            event.preventDefault();
-
-            const email =
-                document.getElementById("email").value.trim();
-
-            const password =
-                document.getElementById("password").value;
-
-            const message =
-                document.getElementById("message");
+        const storedUser =
+            localStorage.getItem("hotelUser");
 
 
-            const savedUser =
-                localStorage.getItem("hotelUser");
+        if (!storedUser) {
+
+            message.style.color = "#d93025";
+
+            message.textContent =
+                "Account not found. Please create an account.";
+
+            return;
+
+        }
 
 
-            if (!savedUser) {
-
-                message.style.color = "red";
-
-                message.textContent =
-                    "No registered account found.";
-
-                return;
-            }
+        const user =
+            JSON.parse(storedUser);
 
 
-            const user =
-                JSON.parse(savedUser);
+        /* Check login details */
+
+        if (
+            email.toLowerCase() === user.email.toLowerCase()
+            &&
+            password === user.password
+        ) {
+
+            /* Login status */
+
+            localStorage.setItem(
+                "isLoggedIn",
+                "true"
+            );
+            // save current user
+            localStorage.setItem(
+                "currentUser",JSON.stringify(user)
+            );
 
 
-            if (
-                email.toLowerCase() ===
-                user.email.toLowerCase()
-                &&
-                password === user.password
-            ) {
+            message.style.color = "#198754";
 
-                message.style.color = "green";
-
-                message.textContent =
-                    "Login successful!";
+            message.textContent =
+                "Login successful!";
 
 
-                setTimeout(function() {
+            /* Go to Home */
 
-                    window.location.href =
-                        "home.html";
+            setTimeout(function () {
 
-                }, 1000);
+                window.location.href = "home.html";
 
-            } else {
+            }, 800);
 
-                message.style.color = "red";
+        } else {
 
-                message.textContent =
-                    "Invalid email or password.";
+            message.style.color = "#d93025";
 
-            }
+            message.textContent =
+                "Invalid email or password.";
 
-        });
+        }
 
-    </script>
+    }
+
+</script>
+
 
 </body>
+
 </html>

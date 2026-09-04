@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account - Hotel Booking</title>
+    <title>Register - Grand Stay</title>
 
     <style>
         * {
@@ -14,214 +14,207 @@
         }
 
         body {
-            background: #f5f7fa;
             min-height: 100vh;
+            background: #f4f8fc;
             display: flex;
-            justify-content: center;
             align-items: center;
-            padding: 30px;
+            justify-content: center;
         }
 
         .container {
-            width: 100%;
-            max-width: 1050px;
-            min-height: 650px;
+            width: 900px;
+            min-height: 560px;
             background: white;
-            display: flex;
-            border-radius: 12px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            display: flex;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
         }
 
         /* LEFT SIDE */
 
         .left {
             width: 45%;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(
+                rgba(0, 40, 90, 0.65),
+                rgba(0, 40, 90, 0.65)
+            ),
+            url("images/hotel.png");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
         }
 
         .left img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 20px;
         }
 
-        .overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.35);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 40px;
-            color: white;
-        }
-
-        .overlay h1 {
-            font-size: 34px;
+        .left h1 {
+            font-size: 30px;
             margin-bottom: 12px;
+            letter-spacing: 2px;
         }
 
-        .overlay p {
-            font-size: 16px;
+        .left p {
+            font-size: 15px;
             line-height: 1.6;
+            opacity: 0.95;
         }
 
         /* RIGHT SIDE */
 
         .right {
             width: 55%;
-            padding: 45px 55px;
+            padding: 45px 50px;
         }
 
-        .logo-section {
-            text-align: center;
+        .right h2 {
+            color: #123b68;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #777;
+            font-size: 14px;
             margin-bottom: 25px;
         }
 
-        .logo {
-            width: 65px;
-            height: 65px;
-            margin: auto;
-            border-radius: 50%;
-            background: #003b95;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .logo img {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-        }
-
-        .logo-section h2 {
-            margin-top: 12px;
-            color: #003b95;
-            font-size: 25px;
-        }
-
-        .logo-section p {
-            color: #666;
-            margin-top: 5px;
-            font-size: 14px;
-        }
-
-        .form-group {
+        .input-group {
             margin-bottom: 17px;
         }
 
-        .form-group label {
+        .input-group label {
             display: block;
+            color: #333;
             font-size: 14px;
             font-weight: bold;
             margin-bottom: 7px;
-            color: #333;
         }
 
-        .input-box {
-            position: relative;
-        }
-
-        .input-box input {
+        .input-group input {
             width: 100%;
-            padding: 13px 42px 13px 14px;
-            border: 1px solid #aaa;
-            border-radius: 5px;
+            padding: 13px 14px;
+            border: 1px solid #d5dce5;
+            border-radius: 8px;
             outline: none;
-            font-size: 15px;
+            font-size: 14px;
+            transition: 0.3s;
         }
 
-        .input-box input:focus {
-            border-color: #0071c2;
-            box-shadow: 0 0 0 2px rgba(0, 113, 194, 0.1);
+        .input-group input:focus {
+            border-color: #1769aa;
+            box-shadow: 0 0 0 3px rgba(23, 105, 170, 0.1);
         }
 
-        .eye {
-            position: absolute;
-            right: 13px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #555;
+        /* PASSWORD RULES */
+
+        .password-rules {
+            background: #f5f9fd;
+            border-radius: 8px;
+            padding: 10px 13px;
+            margin-top: -5px;
+            margin-bottom: 17px;
+            font-size: 12px;
+            color: #666;
         }
 
-        .terms {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            margin: 15px 0;
-            font-size: 13px;
-            color: #555;
+        .password-rules p {
+            margin: 3px 0;
         }
 
-        .terms input {
-            margin-top: 2px;
+        .valid {
+            color: green;
         }
 
-        .terms a {
-            color: #0071c2;
-            text-decoration: none;
+        .invalid {
+            color: #777;
         }
 
         .register-btn {
             width: 100%;
             padding: 14px;
             border: none;
-            border-radius: 5px;
-            background: #0071c2;
+            border-radius: 8px;
+            background: #1769aa;
             color: white;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
+            transition: 0.3s;
+            margin-top: 5px;
         }
 
         .register-btn:hover {
-            background: #005999;
+            background: #0d4f85;
         }
 
-        .login-link {
+        .login-text {
             text-align: center;
             margin-top: 20px;
             font-size: 14px;
-            color: #555;
+            color: #666;
         }
 
-        .login-link a {
-            color: #0071c2;
-            text-decoration: none;
+        .login-text a {
+            color: #1769aa;
             font-weight: bold;
+            text-decoration: none;
+        }
+
+        .login-text a:hover {
+            text-decoration: underline;
         }
 
         .message {
             text-align: center;
             margin-top: 12px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
         }
 
         /* MOBILE */
 
-        @media (max-width: 750px) {
+        @media (max-width: 768px) {
 
             body {
-                padding: 15px;
+                padding: 20px;
             }
 
             .container {
-                display: block;
+                width: 100%;
+                flex-direction: column;
             }
 
             .left {
-                display: none;
+                width: 100%;
+                min-height: 220px;
+            }
+
+            .left img {
+                width: 65px;
+                height: 65px;
+                margin-bottom: 10px;
+            }
+
+            .left h1 {
+                font-size: 24px;
             }
 
             .right {
                 width: 100%;
-                padding: 35px 25px;
+                padding: 30px 25px;
             }
         }
     </style>
@@ -231,148 +224,147 @@
 
     <div class="container">
 
-        <!-- LEFT IMAGE -->
+        <!-- LEFT SIDE -->
 
         <div class="left">
 
-            <img src="images/hotel.png" alt="Hotel">
+            <img src="images/logo.png" alt="Grand Stay Logo">
 
-            <div class="overlay">
-                <h1>Your Perfect Stay</h1>
-                <p>
-                    Create your account and discover
-                    comfortable rooms and memorable stays.
-                </p>
-            </div>
+            <h1>GRAND STAY</h1>
+
+            <p>
+                Create your account and enjoy
+                a comfortable and memorable stay
+                with Grand Stay.
+            </p>
 
         </div>
 
 
-        <!-- RIGHT REGISTER FORM -->
+        <!-- RIGHT SIDE -->
 
         <div class="right">
 
-            <div class="logo-section">
+            <h2>Create Account</h2>
 
-                <div class="logo">
-                    <img src="images/logo.png" alt="Hotel">
-                </div>
+            <p class="subtitle">
+                Register to start booking your perfect stay.
+            </p>
 
-                <h2>Create an account</h2>
 
-                <p>Join us and start booking your stay</p>
+            <!-- NAME -->
+
+            <div class="input-group">
+
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your full name"
+                >
 
             </div>
 
 
-            <form id="registerForm">
+            <!-- EMAIL -->
 
-                <div class="form-group">
-                    <label>Full Name</label>
+            <div class="input-group">
 
-                    <div class="input-box">
-                         <input
-                            type="text"
-                            id="fullname"
-                            placeholder="Enter your full name"
-                            required>
-                    </div>
-                </div>
+                <label for="email">Email Address</label>
 
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                >
 
-                <div class="form-group">
-                    <label>Email Address</label>
-
-                    <div class="input-box">
-                         <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter your email"
-                            required>
-                    </div>
-                </div>
+            </div>
 
 
-                <div class="form-group">
-                    <label>Username</label>
+            <!-- PASSWORD -->
 
-                    <div class="input-box">
-                        <input
-                           type="text"
-                           id="username"
-                           placeholder="Choose a username"
-                           required>
-                    </div>
-                </div>
+            <div class="input-group">
 
+                <label for="password">Create Password</label>
 
-                <div class="form-group">
-                    <label>Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a strong password"
+                    oninput="checkPassword()"
+                >
 
-                    <div class="input-box">
-
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Create a password"
-                            required>
-
-                        <span
-                            class="eye"
-                            onclick="togglePassword('password', this)">
-                            👁
-                        </span>
-
-                    </div>
-                </div>
+            </div>
 
 
-                <div class="form-group">
-                    <label>Confirm Password</label>
+            <!-- PASSWORD RULES -->
 
-                    <div class="input-box">
+            <div class="password-rules">
 
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            placeholder="Confirm your password"
-                            required>
+                <p id="length" class="invalid">
+                    ✗ Minimum 8 characters
+                </p>
 
-                        <span
-                            class="eye"
-                            onclick="togglePassword('confirmPassword', this)">
-                            👁
-                        </span>
+                <p id="upper" class="invalid">
+                    ✗ One uppercase letter
+                </p>
 
-                    </div>
-                </div>
+                <p id="lower" class="invalid">
+                    ✗ One lowercase letter
+                </p>
 
+                <p id="number" class="invalid">
+                    ✗ One number
+                </p>
 
-                <div class="terms">
+                <p id="special" class="invalid">
+                    ✗ One special character
+                </p>
 
-                    <input type="checkbox" id="terms" required>
-
-                    <label for="terms">
-                        I agree to the
-                        <a href="#">Terms and Conditions</a>
-                    </label>
-
-                </div>
+            </div>
 
 
-                <button type="submit" class="register-btn">
-                    Create Account
-                </button>
+            <!-- CONFIRM PASSWORD -->
 
-                <div class="message" id="message"></div>
+            <div class="input-group">
 
-            </form>
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                >
+
+            </div>
 
 
-            <div class="login-link">
+            <!-- REGISTER BUTTON -->
+
+            <button
+                type="button"
+                class="register-btn"
+                onclick="registerUser()"
+            >
+                Create Account
+            </button>
+
+
+            <p id="message" class="message"></p>
+
+
+            <p class="login-text">
+
                 Already have an account?
-                <a href="login.html">Sign in</a>
-            </div>
+
+                <a href="login.html">
+                    Sign In
+                </a>
+
+            </p>
 
         </div>
 
@@ -381,40 +373,125 @@
 
     <script>
 
-        // SHOW / HIDE PASSWORD
+        // PASSWORD VALIDATION
 
-        function togglePassword(id, icon) {
+        function checkPassword() {
 
-            const input = document.getElementById(id);
+            const password =
+                document.getElementById("password").value;
 
-            if (input.type === "password") {
 
-                input.type = "text";
-                icon.textContent = "🙈";
+            // Minimum 8 characters
+
+            if (password.length >= 8) {
+
+                document.getElementById("length").innerHTML =
+                    "✓ Minimum 8 characters";
+
+                document.getElementById("length").className =
+                    "valid";
 
             } else {
 
-                input.type = "password";
-                icon.textContent = "👁";
+                document.getElementById("length").innerHTML =
+                    "✗ Minimum 8 characters";
 
+                document.getElementById("length").className =
+                    "invalid";
             }
+
+
+            // Uppercase
+
+            if (/[A-Z]/.test(password)) {
+
+                document.getElementById("upper").innerHTML =
+                    "✓ One uppercase letter";
+
+                document.getElementById("upper").className =
+                    "valid";
+
+            } else {
+
+                document.getElementById("upper").innerHTML =
+                    "✗ One uppercase letter";
+
+                document.getElementById("upper").className =
+                    "invalid";
+            }
+
+
+            // Lowercase
+
+            if (/[a-z]/.test(password)) {
+
+                document.getElementById("lower").innerHTML =
+                    "✓ One lowercase letter";
+
+                document.getElementById("lower").className =
+                    "valid";
+
+            } else {
+
+                document.getElementById("lower").innerHTML =
+                    "✗ One lowercase letter";
+
+                document.getElementById("lower").className =
+                    "invalid";
+            }
+
+
+            // Number
+
+            if (/[0-9]/.test(password)) {
+
+                document.getElementById("number").innerHTML =
+                    "✓ One number";
+
+                document.getElementById("number").className =
+                    "valid";
+
+            } else {
+
+                document.getElementById("number").innerHTML =
+                    "✗ One number";
+
+                document.getElementById("number").className =
+                    "invalid";
+            }
+
+
+            // Special character
+
+            if (/[@#$%!&*]/.test(password)) {
+
+                document.getElementById("special").innerHTML =
+                    "✓ One special character";
+
+                document.getElementById("special").className =
+                    "valid";
+
+            } else {
+
+                document.getElementById("special").innerHTML =
+                    "✗ One special character";
+
+                document.getElementById("special").className =
+                    "invalid";
+            }
+
         }
 
 
-        // REGISTER
+        // REGISTER FUNCTION
 
-        document.getElementById("registerForm").addEventListener("submit", function(event) {
+        function registerUser() {
 
-            event.preventDefault();
-
-            const fullname =
-                document.getElementById("fullname").value.trim();
+            const name =
+                document.getElementById("name").value.trim();
 
             const email =
                 document.getElementById("email").value.trim();
-
-            const username =
-                document.getElementById("username").value.trim();
 
             const password =
                 document.getElementById("password").value;
@@ -426,25 +503,66 @@
                 document.getElementById("message");
 
 
-            // CHECK PASSWORD
+            // Check empty fields
 
-            if (password !== confirmPassword) {
+            if (
+                name === "" ||
+                email === "" ||
+                password === "" ||
+                confirmPassword === ""
+            ) {
+
+                message.innerHTML =
+                    "Please fill all fields.";
 
                 message.style.color = "red";
-                message.textContent = "Passwords do not match.";
 
                 return;
             }
 
 
-            // SAVE USER
+            // Strong password
+
+            const strongPassword =
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%!&*]).{8,}$/;
+
+
+            if (!strongPassword.test(password)) {
+
+                message.innerHTML =
+                    "Please create a strong password.";
+
+                message.style.color = "red";
+
+                return;
+            }
+
+
+            // Confirm password
+
+            if (password !== confirmPassword) {
+
+                message.innerHTML =
+                    "Passwords do not match.";
+
+                message.style.color = "red";
+
+                return;
+            }
+
+
+            // Store user details
 
             const user = {
-                fullname: fullname,
+
+                name: name,
+
                 email: email,
-                username: username,
+
                 password: password
+
             };
+
 
             localStorage.setItem(
                 "hotelUser",
@@ -452,20 +570,21 @@
             );
 
 
+            message.innerHTML =
+                "Registration successful!";
+
             message.style.color = "green";
-            message.textContent =
-                "Account created successfully!";
 
 
-            // GO TO LOGIN
+            // Go to login page
 
             setTimeout(function() {
 
                 window.location.href = "login.html";
 
-            }, 1500);
+            }, 1000);
 
-        });
+        }
 
     </script>
 

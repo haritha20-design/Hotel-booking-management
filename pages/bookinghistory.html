@@ -1,466 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking History - Grand Stay</title>
 
-<title>Booking History - Grand Stay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+        body {
+            background: #f5f7fb;
+            color: #222;
+        }
 
-body{
-    background:#f4f8fc;
-    color:#1f2937;
-}
+        /* NAVBAR */
+        nav {
+            background: #0b3d62;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-/* NAVBAR */
-.navbar{
-    height:75px;
-    background:white;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 7%;
-    box-shadow:0 2px 10px rgba(0,0,0,0.08);
-}
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
 
-.logo img{
-    width:45px;
-    height:45px;
-    object-fit:contain;
-}
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
 
-.logo h2{
-    color:#006ce4;
-    font-size:22px;
-}
+        .nav-links a:hover {
+            color: #ffd166;
+        }
 
-.nav-links{
-    display:flex;
-    gap:25px;
-}
+        /* HEADER */
+        .page-header {
+            text-align: center;
+            padding: 45px 20px 30px;
+        }
 
-.nav-links a{
-    text-decoration:none;
-    color:#374151;
-    font-size:15px;
-    font-weight:600;
-}
+        .page-header h1 {
+            color: #0b3d62;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
 
-.nav-links a:hover{
-    color:#006ce4;
-}
+        .page-header p {
+            color: #666;
+        }
 
-/* MAIN */
-.container{
-    width:90%;
-    max-width:1100px;
-    margin:45px auto;
-}
+        /* USER INFO */
+        .user-box {
+            width: 86%;
+            max-width: 1100px;
+            margin: 0 auto 25px;
+            background: white;
+            padding: 18px 22px;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
 
-.page-header{
-    margin-bottom:25px;
-}
+        .user-box strong {
+            color: #0b3d62;
+        }
 
-.page-header h1{
-    font-size:30px;
-    color:#111827;
-    margin-bottom:8px;
-}
+        /* HISTORY CONTAINER */
+        .history-container {
+            width: 86%;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-.page-header p{
-    color:#6b7280;
-}
+        /* BOOKING CARD */
+        .booking-card {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
 
-/* BOOKING CARD */
-.booking-card{
-    background:white;
-    border-radius:16px;
-    padding:25px;
-    margin-bottom:22px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-    border:1px solid #e5e7eb;
-}
+        .booking-top {
+            background: #0b3d62;
+            color: white;
+            padding: 16px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.booking-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:1px solid #e5e7eb;
-    padding-bottom:18px;
-    margin-bottom:20px;
-}
+        .booking-top h3 {
+            font-size: 18px;
+        }
 
-.booking-id{
-    color:#006ce4;
-    font-weight:bold;
-}
+        .status {
+            background: #198754;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
 
-.status{
-    background:#dcfce7;
-    color:#15803d;
-    padding:7px 14px;
-    border-radius:20px;
-    font-size:13px;
-    font-weight:bold;
-}
+        .booking-body {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 22px;
+            padding: 22px;
+        }
 
-.booking-content{
-    display:grid;
-    grid-template-columns:150px 1fr;
-    gap:25px;
-}
+        .room-image {
+            width: 180px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
-.room-img{
-    width:150px;
-    height:120px;
-    object-fit:cover;
-    border-radius:12px;
-}
+        .details h2 {
+            color: #0b3d62;
+            margin-bottom: 10px;
+        }
 
-.room-info h2{
-    font-size:21px;
-    margin-bottom:8px;
-}
+        .details p {
+            margin: 7px 0;
+            color: #555;
+        }
 
-.room-info p{
-    color:#6b7280;
-    margin:6px 0;
-}
+        .details strong {
+            color: #333;
+        }
 
-.details{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:20px;
-}
+        .amount {
+            margin-top: 12px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #198754;
+        }
 
-.detail-box{
-    background:#f8fafc;
-    padding:14px;
-    border-radius:10px;
-}
+        .view-btn {
+            margin-top: 15px;
+            padding: 10px 18px;
+            border: none;
+            background: #0b3d62;
+            color: white;
+            border-radius: 7px;
+            cursor: pointer;
+        }
 
-.detail-box span{
-    display:block;
-    font-size:12px;
-    color:#6b7280;
-    margin-bottom:5px;
-}
+        .view-btn:hover {
+            background: #082f4b;
+        }
 
-.detail-box strong{
-    font-size:14px;
-    color:#111827;
-}
+        /* EMPTY */
+        .empty {
+            background: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
 
-.booking-bottom{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-top:22px;
-    padding-top:18px;
-    border-top:1px solid #e5e7eb;
-}
+        .empty h2 {
+            color: #0b3d62;
+            margin-bottom: 10px;
+        }
 
-.amount{
-    font-size:20px;
-    font-weight:bold;
-    color:#111827;
-}
+        .empty p {
+            color: #666;
+            margin-bottom: 20px;
+        }
 
-.view-btn{
-    background:#006ce4;
-    color:white;
-    border:none;
-    padding:11px 20px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-}
+        .home-btn {
+            display: inline-block;
+            padding: 12px 22px;
+            background: #0b3d62;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+        }
 
-.view-btn:hover{
-    background:#0057bd;
-}
+        /* FOOTER */
+        footer {
+            margin-top: 60px;
+            background: #0b3d62;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
 
-/* EMPTY */
-.empty{
-    background:white;
-    padding:60px 20px;
-    text-align:center;
-    border-radius:16px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.06);
-}
+        /* MOBILE */
+        @media (max-width: 700px) {
 
-.empty-icon{
-    font-size:50px;
-    margin-bottom:15px;
-}
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
 
-.empty h2{
-    margin-bottom:8px;
-}
+            .nav-links {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-.empty p{
-    color:#6b7280;
-}
+            .page-header h1 {
+                font-size: 28px;
+            }
 
-/* FOOTER */
-footer{
-    background:#003b7a;
-    color:white;
-    text-align:center;
-    padding:25px;
-    margin-top:60px;
-}
+            .booking-body {
+                grid-template-columns: 1fr;
+            }
 
-/* MOBILE */
-@media(max-width:700px){
+            .room-image {
+                width: 100%;
+                height: 200px;
+            }
 
-    .navbar{
-        padding:0 5%;
-    }
-
-    .nav-links{
-        gap:10px;
-    }
-
-    .nav-links a{
-        font-size:12px;
-    }
-
-    .booking-content{
-        grid-template-columns:1fr;
-    }
-
-    .room-img{
-        width:100%;
-        height:180px;
-    }
-
-    .details{
-        grid-template-columns:1fr;
-    }
-
-    .booking-bottom{
-        flex-direction:column;
-        gap:15px;
-        align-items:flex-start;
-    }
-}
-</style>
+            .booking-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
+    <!-- NAVBAR -->
+    <nav>
 
-    <div class="logo">
-        <img src="images/logo.png" alt="Grand Stay Logo">
-        <h2>GRAND STAY</h2>
-    </div>
+        <div class="logo">
+            GRAND STAY
+        </div>
 
-    <div class="nav-links">
-        <a href="home.html">Home</a>
-        <a href="booking.html">Rooms</a>
-        <a href="bookinghistory.html">History</a>
-        <a href="contact.html">Contact</a>
-        <a href="logout.html">logout</a>
-    </div>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="booking.html">Rooms</a>
+            <a href="bookinghistory.html">History</a>
+            <a href="contact.html">Contact</a>
+            <a href="logout.html">Logout</a>
+        </div>
 
-</nav>
+    </nav>
 
 
-<!-- MAIN -->
-<div class="container">
+    <!-- PAGE HEADER -->
 
-    <div class="page-header">
+    <section class="page-header">
+
         <h1>Booking History</h1>
-        <p>View and manage your previous hotel bookings.</p>
+
+        <p>
+            View all your previous and current bookings
+        </p>
+
+    </section>
+
+
+    <!-- USER -->
+
+    <div class="user-box">
+
+        Logged in as:
+        <strong id="userEmail">Loading...</strong>
+
     </div>
 
-    <div id="bookingContainer"></div>
 
-</div>
+    <!-- HISTORY -->
+
+    <div class="history-container">
+
+        <div id="historyList"></div>
+
+    </div>
 
 
-<footer>
-    © 2026 GRAND STAY. All Rights Reserved.
-</footer>
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Grand Stay Hotel. All Rights Reserved.
+
+    </footer>
 
 
 <script>
 
-const bookingData =
-    JSON.parse(localStorage.getItem("bookingData"));
+    // Get current logged-in user
 
-const searchDetails =
-    JSON.parse(localStorage.getItem("searchDetails"));
-
-const guestDetails =
-    JSON.parse(localStorage.getItem("guestDetails"));
-
-const paymentData =
-    JSON.parse(localStorage.getItem("paymentData"));
-
-const bookingId =
-    localStorage.getItem("bookingId");
-
-const container =
-    document.getElementById("bookingContainer");
+    const currentUser =
+        JSON.parse(localStorage.getItem("currentUser"));
 
 
-if(!bookingData){
+    const historyList =
+        document.getElementById("historyList");
 
-    container.innerHTML = `
-        <div class="empty">
 
-            <div class="empty-icon">📋</div>
+    const userEmail =
+        document.getElementById("userEmail");
 
-            <h2>No Bookings Found</h2>
 
-            <p>You haven't made any bookings yet.</p>
+    // Check login
 
-        </div>
-    `;
+    if (!currentUser || !currentUser.email) {
 
-}else{
+        userEmail.textContent = "Not logged in";
 
-    const roomImages = {
-        "Deluxe Room":"images/deluxe.jpg",
-        "Executive Room":"images/executive.jpg",
-        "Luxury Suite":"images/suite.jpg"
-    };
+        historyList.innerHTML = `
 
-    const image =
-        roomImages[bookingData.roomName]
-        || "images/room.jpg";
+            <div class="empty">
 
-    const destination =
-        searchDetails?.destination || "Grand Stay";
+                <h2>Please Login</h2>
 
-    const checkin =
-        searchDetails?.checkin || "-";
+                <p>
+                    Login to view your booking history.
+                </p>
 
-    const checkout =
-        searchDetails?.checkout || "-";
-
-    const guests =
-        guestDetails?.guests ||
-        searchDetails?.guests ||
-        "-";
-
-    const amount =
-        paymentData?.amount ||
-        bookingData.price ||
-        0;
-
-    container.innerHTML = `
-
-        <div class="booking-card">
-
-            <div class="booking-top">
-
-                <div>
-                    <p>Booking ID</p>
-                    <div class="booking-id">
-                        ${bookingId || "GS000000"}
-                    </div>
-                </div>
-
-                <span class="status">
-                    Confirmed
-                </span>
+                <a href="login.html" class="home-btn">
+                    Login
+                </a>
 
             </div>
 
+        `;
 
-            <div class="booking-content">
+    } 
+    
+    else {
 
-                <img
-                    src="${image}"
-                    class="room-img"
-                    alt="${bookingData.roomName}"
-                >
+        // Show user email
 
-                <div class="room-info">
+        userEmail.textContent =
+            currentUser.email;
 
-                    <h2>
-                        ${bookingData.roomName}
-                    </h2>
+
+        // User-specific history key
+
+        const historyKey =
+            "bookingHistory_" +
+            currentUser.email.toLowerCase();
+
+
+        // Get booking history
+
+        const bookingHistory =
+            JSON.parse(
+                localStorage.getItem(historyKey)
+            ) || [];
+
+
+        // No bookings
+
+        if (bookingHistory.length === 0) {
+
+            historyList.innerHTML = `
+
+                <div class="empty">
+
+                    <h2>No Bookings Yet</h2>
 
                     <p>
-                        📍 ${destination}
+                        You haven't made any bookings yet.
                     </p>
 
-                    <p>
-                        🏨 GRAND STAY HOTEL
-                    </p>
+                    <a href="booking.html" class="home-btn">
+                        Book a Room
+                    </a>
 
-                    <div class="details">
+                </div>
 
-                        <div class="detail-box">
-                            <span>Check-in</span>
-                            <strong>${checkin}</strong>
+            `;
+
+        }
+
+        else {
+
+            // Latest booking first
+
+            bookingHistory.reverse();
+
+
+            bookingHistory.forEach(function(booking) {
+
+                const room =
+                    booking.room || {};
+
+                const search =
+                    booking.searchDetails || {};
+
+                const guest =
+                    booking.guestDetails || {};
+
+                const cost =
+                    booking.bookingCost || {};
+
+                const payment =
+                    booking.paymentData || {};
+
+
+                const bookingDate =
+                    payment.paymentDate || "N/A";
+
+
+                historyList.innerHTML += `
+
+                    <div class="booking-card">
+
+                        <div class="booking-top">
+
+                            <h3>
+                                Booking ID:
+                                ${booking.bookingId || "N/A"}
+                            </h3>
+
+                            <span class="status">
+                                Confirmed
+                            </span>
+
                         </div>
 
-                        <div class="detail-box">
-                            <span>Check-out</span>
-                            <strong>${checkout}</strong>
-                        </div>
 
-                        <div class="detail-box">
-                            <span>Guests</span>
-                            <strong>${guests}</strong>
+                        <div class="booking-body">
+
+                            <img
+                                src="${room.image || 'images/room.jpg'}"
+                                class="room-image"
+                                alt="Room"
+                            >
+
+
+                            <div class="details">
+
+                                <h2>
+                                    ${room.type || "Hotel Room"}
+                                </h2>
+
+
+                                <p>
+                                    <strong>Room Number:</strong>
+                                    ${room.roomNumber || "N/A"}
+                                </p>
+
+
+                                <p>
+                                    <strong>Guest:</strong>
+                                    ${guest.fullName || "N/A"}
+                                </p>
+
+
+                                <p>
+                                    <strong>Check-in:</strong>
+                                    ${search.checkin || "N/A"}
+                                </p>
+
+
+                                <p>
+                                    <strong>Check-out:</strong>
+                                    ${search.checkout || "N/A"}
+                                </p>
+
+
+                                <p>
+                                    <strong>Guests:</strong>
+                                    ${search.guests || guest.guests || "N/A"}
+                                </p>
+
+
+                                <p>
+                                    <strong>Rooms:</strong>
+                                    ${search.rooms || guest.rooms || "1"}
+                                </p>
+
+
+                                <p>
+                                    <strong>Booking Date:</strong>
+                                    ${bookingDate}
+                                </p>
+
+
+                                <p>
+                                    <strong>Payment:</strong>
+                                    ${payment.paymentMethod || "N/A"}
+                                </p>
+
+
+                                <div class="amount">
+
+                                    Total Paid:
+                                    ₹${Number(
+                                        cost.totalAmount || 0
+                                    ).toLocaleString("en-IN")}
+
+                                </div>
+
+
+                                <button
+                                    class="view-btn"
+                                    onclick='viewBooking(${JSON.stringify(booking)})'
+                                >
+                                    View Details
+                                </button>
+
+                            </div>
+
                         </div>
 
                     </div>
 
-                </div>
+                `;
 
-            </div>
+            });
 
+        }
 
-            <div class="booking-bottom">
-
-                <div>
-                    <span>Total Amount</span>
-                    <div class="amount">
-                        ₹${amount}
-                    </div>
-                </div>
-
-                <button
-                    class="view-btn"
-                    onclick="viewConfirmation()">
-                    View Confirmation
-                </button>
-
-            </div>
-
-        </div>
-    `;
-}
+    }
 
 
-function viewConfirmation(){
+    // View booking details
 
-    window.location.href =
-        "confirmation.html";
+    function viewBooking(booking) {
 
-}
+        localStorage.setItem(
+            "finalBooking",
+            JSON.stringify(booking)
+        );
+
+        window.location.href =
+            "confirmation.html";
+
+    }
 
 </script>
 

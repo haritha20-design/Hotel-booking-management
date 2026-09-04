@@ -1,928 +1,731 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Grand Stay - Home</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #f5f8fc;
-            color: #17324d;
-        }
-
-        /* NAVBAR */
-
-        header {
-            height: 72px;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 7%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-area img {
-            width: 42px;
-            height: 42px;
-            object-fit: contain;
-        }
-
-        .logo-area h2 {
-            color: #075ca8;
-            font-size: 22px;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #40566b;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        nav a:hover {
-            color: #0875d1;
-        }
-
-        .profile-btn {
-            background: #0875d1;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 7px;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 430px;
-
-            background:
-                linear-gradient(
-                    rgba(0, 43, 82, 0.72),
-                    rgba(0, 43, 82, 0.72)
-                ),
-                url("image/hotel.png");
-
-            background-size: cover;
-            background-position: center;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .hero-content {
-            max-width: 750px;
-            color: white;
-        }
-
-        .hero-content h1 {
-            font-size: 46px;
-            margin-bottom: 15px;
-        }
-
-        .hero-content p {
-            font-size: 17px;
-            line-height: 1.6;
-            margin-bottom: 35px;
-        }
-
-        /* SEARCH BOX */
-
-        .search-box {
-            background: white;
-            max-width: 1050px;
-            margin: -45px auto 50px;
-
-            position: relative;
-            z-index: 5;
-
-            padding: 20px;
-
-            border-radius: 12px;
-
-            box-shadow:
-                0 10px 30px rgba(0,0,0,0.15);
-
-            display: grid;
-            grid-template-columns:
-                1.5fr 1fr 1fr 1fr 120px;
-
-            gap: 12px;
-        }
-
-        .search-field label {
-            display: block;
-            font-size: 12px;
-            font-weight: bold;
-            color: #53677a;
-            margin-bottom: 7px;
-        }
-
-        .search-field input,
-        .search-field select {
-            width: 100%;
-            height: 45px;
-
-            border: 1px solid #d5dde6;
-            border-radius: 6px;
-
-            padding: 0 10px;
-
-            outline: none;
-            font-size: 13px;
-        }
-
-        .search-field input:focus,
-        .search-field select:focus {
-            border-color: #0875d1;
-        }
-
-        .search-btn {
-            align-self: end;
-
-            height: 45px;
-
-            border: none;
-            border-radius: 6px;
-
-            background: #0875d1;
-            color: white;
-
-            font-size: 14px;
-            font-weight: bold;
-
-            cursor: pointer;
-        }
-
-        .search-btn:hover {
-            background: #05599f;
-        }
-
-        /* SECTION */
-
-        .section {
-            max-width: 1100px;
-            margin: 0 auto 60px;
-            padding: 0 20px;
-        }
-
-        .section-heading {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .section-heading h2 {
-            font-size: 26px;
-            color: #17324d;
-        }
-
-        .section-heading a {
-            color: #0875d1;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        /* ROOM CARDS */
-
-        .rooms {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        .room-card {
-            background: white;
-
-            border-radius: 12px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.08);
-
-            transition: 0.3s;
-        }
-
-        .room-card:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 10px 25px rgba(0,0,0,0.12);
-        }
-
-        .room-card img {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
-        }
-
-        .room-content {
-            padding: 18px;
-        }
-
-        .room-content h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .room-content p {
-            color: #718096;
-            font-size: 13px;
-            line-height: 1.5;
-            margin-bottom: 12px;
-        }
-
-        .room-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .price {
-            color: #0875d1;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .price span {
-            color: #777;
-            font-size: 11px;
-            font-weight: normal;
-        }
-
-        .view-btn {
-            background: #eaf4ff;
-            color: #0875d1;
-
-            border: none;
-            border-radius: 6px;
-
-            padding: 9px 14px;
-
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .view-btn:hover {
-            background: #0875d1;
-            color: white;
-        }
-
-        /* FEATURES */
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .feature {
-            background: white;
-            padding: 25px;
-
-            border-radius: 10px;
-
-            text-align: center;
-
-            box-shadow:
-                0 4px 15px rgba(0,0,0,0.06);
-        }
-
-        .feature-icon {
-            font-size: 30px;
-            margin-bottom: 12px;
-        }
-
-        .feature h3 {
-            margin-bottom: 8px;
-            font-size: 17px;
-        }
-
-        .feature p {
-            color: #718096;
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #062b4f;
-            color: white;
-
-            text-align: center;
-
-            padding: 25px 20px;
-
-            margin-top: 50px;
-        }
-
-        footer p {
-            font-size: 13px;
-            color: #c8d6e5;
-        }
-
-        /* TABLET */
-
-        @media (max-width: 900px) {
-
-            nav {
-                gap: 12px;
-            }
-
-            .search-box {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .rooms,
-            .features {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 650px) {
-
-            header {
-                padding: 0 20px;
-            }
-
-            nav a:not(.profile-btn) {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 32px;
-            }
-
-            .hero-content p {
-                font-size: 14px;
-            }
-
-            .search-box {
-                grid-template-columns: 1fr;
-
-                margin: -30px 20px 40px;
-            }
-
-            .rooms,
-            .features {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grand Stay - Home</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f8fc;
+    color:#222;
+}
+
+/* NAVBAR */
+.navbar{
+    height:75px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-area img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+}
+
+.logo-area span{
+    font-size:21px;
+    font-weight:bold;
+    color:#123b68;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#333;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:#1769aa;
+}
+
+.logout{
+    color:red !important;
+}
+
+/* HERO */
+.hero{
+    min-height:500px;
+    background:
+    linear-gradient(rgba(0,35,75,.65),rgba(0,35,75,.65)),
+    url("images/hotel.png");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.hero-content{
+    width:100%;
+    max-width:1000px;
+    color:white;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:35px;
+}
+
+/* SEARCH */
+.search-box{
+    background:white;
+    padding:25px;
+    border-radius:14px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr auto;
+    gap:12px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+.field{
+    text-align:left;
+}
+
+.field label{
+    display:block;
+    color:#333;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.field input,
+.field select{
+    width:100%;
+    height:44px;
+    padding:0 10px;
+    border:1px solid #d5dce5;
+    border-radius:7px;
+    outline:none;
+}
+
+.search-btn{
+    height:44px;
+    padding:0 20px;
+    border:none;
+    border-radius:7px;
+    background:#1769aa;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.search-btn:hover{
+    background:#0d4f85;
+}
+
+/* SECTION */
+.section{
+    padding:60px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.title h2{
+    color:#123b68;
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.title p{
+    color:#777;
+}
+
+/* ROOM CARDS */
+.room-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.room-card{
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.room-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.room-content{
+    padding:20px;
+}
+
+.room-content h3{
+    color:#123b68;
+    margin-bottom:8px;
+}
+
+.room-content p{
+    color:#777;
+    font-size:13px;
+    line-height:1.5;
+    margin-bottom:15px;
+}
+
+.room-info{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.price{
+    color:#1769aa;
+    font-weight:bold;
+}
+
+.view-btn{
+    border:none;
+    padding:9px 14px;
+    border-radius:6px;
+    background:#eaf3fb;
+    color:#1769aa;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.view-btn:hover{
+    background:#1769aa;
+    color:white;
+}
+
+/* FEATURES */
+.features{
+    background:white;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.feature{
+    text-align:center;
+    padding:25px;
+    border:1px solid #e5eaf0;
+    border-radius:10px;
+}
+
+.feature-icon{
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+.feature h3{
+    color:#123b68;
+    margin-bottom:8px;
+}
+
+.feature p{
+    color:#777;
+    font-size:13px;
+}
+
+/* FOOTER */
+footer{
+    background:#0c2947;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+footer h3{
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#cbd7e5;
+    font-size:13px;
+    margin:5px;
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+
+    .search-box{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .room-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:700px){
+
+    .navbar{
+        height:auto;
+        flex-direction:column;
+        gap:15px;
+        padding:15px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .search-box{
+        grid-template-columns:1fr;
+    }
+
+    .room-grid{
+        grid-template-columns:1fr;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+<!-- NAVBAR -->
+<nav class="navbar">
 
-    <header>
+    <div class="logo-area">
+        <img src="images/logo.png" alt="Grand Stay Logo">
+        <span>GRAND STAY</span>
+    </div>
 
-        <div class="logo-area">
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="booking.html">Rooms</a>
+        <a href="bookinghistory.html">History</a>
+        <a href="contact.html">Contact</a>
+        <a href="logout.html" class="logout">Logout</a>
+    </div>
 
-            <img
-                src="images/logo.png"
-                alt="Grand Stay Logo">
-
-            <h2>Grand Stay</h2>
-
-        </div>
-
-        <nav>
-
-            <a href="home.html">
-                Home
-            </a>
-
-            <a href="#rooms">
-                Rooms
-            </a>
-
-            <a href="#features">
-                Amenities
-            </a>
-
-            <a href="bookinghistory.html">
-                My Bookings
-            </a>
-
-            <a href="contact.html">
-                Contact
-            </a>
-
-            <a
-                href="logout.html"
-                class="profile-btn">
-
-                Logout
-
-            </a>
-
-        </nav>
-
-    </header>
+</nav>
 
 
-    <!-- HERO -->
+<!-- HERO -->
+<section class="hero">
 
-    <section class="hero">
+    <div class="hero-content">
 
-        <div class="hero-content">
+        <h1>Find Your Perfect Stay</h1>
 
-            <h1>
-                Find Your Perfect Stay
-            </h1>
+        <p>
+            Experience comfort, luxury and unforgettable
+            hospitality at Grand Stay.
+        </p>
 
-            <p>
-                Discover comfortable rooms, excellent
-                facilities and unforgettable experiences
-                at Grand Stay.
-            </p>
+        <!-- SEARCH BOX -->
+        <div class="search-box">
 
-        </div>
+            <div class="field">
+                <label>Check-in</label>
+                <input type="date" id="checkin">
+            </div>
 
-    </section>
+            <div class="field">
+                <label>Check-out</label>
+                <input type="date" id="checkout">
+            </div>
 
+            <div class="field">
+                <label>Guests</label>
+                <select id="guests">
+                    <option value="1">1 Guest</option>
+                    <option value="2" selected>2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6">6 Guests</option>
+                </select>
+            </div>
 
-    <!-- SEARCH -->
+            <div class="field">
+                <label>Rooms</label>
+                <select id="rooms">
+                    <option value="1" selected>1 Room</option>
+                    <option value="2">2 Rooms</option>
+                    <option value="3">3 Rooms</option>
+                    <option value="4">4 Rooms</option>
+                </select>
+            </div>
 
-    <div class="search-box">
-
-        <div class="search-field">
-
-            <label>
-                📍 Destination
-            </label>
-
-            <input
-                type="text"
-                id="destination"
-                placeholder="Where are you going?">
+            <button class="search-btn" onclick="searchRooms()">
+                Search Rooms
+            </button>
 
         </div>
-
-
-        <div class="search-field">
-
-            <label>
-                📅 Check-in
-            </label>
-
-            <input
-                type="date"
-                id="checkin">
-
-        </div>
-
-
-        <div class="search-field">
-
-            <label>
-                📅 Check-out
-            </label>
-
-            <input
-                type="date"
-                id="checkout">
-
-        </div>
-
-
-        <div class="search-field">
-
-            <label>
-                👥 Guests
-            </label>
-
-            <select id="guests">
-
-                <option value="">
-                    Select guests
-                </option>
-
-                <option value="1">
-                    1 Guest
-                </option>
-
-                <option value="2">
-                    2 Guests
-                </option>
-
-                <option value="3">
-                    3 Guests
-                </option>
-
-                <option value="4">
-                    4 Guests
-                </option>
-
-                <option value="5">
-                    5+ Guests
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <button
-            class="search-btn"
-            onclick="searchRooms()">
-
-            Search
-
-        </button>
 
     </div>
 
+</section>
 
-    <!-- POPULAR ROOMS -->
 
-    <section
-        class="section"
-        id="rooms">
+<!-- ROOM CATEGORIES -->
+<section class="section">
 
-        <div class="section-heading">
+    <div class="title">
+        <h2>Our Room Categories</h2>
+        <p>Explore our comfortable and luxurious rooms.</p>
+    </div>
 
-            <h2>
-                Popular Rooms
-            </h2>
+    <div class="room-grid">
 
-            <a href="booking.html">
-                View All Rooms →
-            </a>
+        <!-- SINGLE -->
+        <div class="room-card">
 
-        </div>
+            <img src="images/single.jpg" alt="Single Room">
 
+            <div class="room-content">
 
-        <div class="rooms">
-
-
-            <!-- DELUXE ROOM -->
-
-            <div class="room-card">
-
-                <img
-                    src="images/deluxe.jpg"
-                    alt="Deluxe Room">
-
-                <div class="room-content">
-
-                    <h3>
-                        Deluxe Room
-                    </h3>
-
-                    <p>
-                        Spacious room with modern
-                        facilities and a comfortable stay.
-                    </p>
-
-                    <div class="room-info">
-
-                        <div class="price">
-                            ₹3,500
-                            <span>/ night</span>
-                        </div>
-
-                        <button
-                            class="view-btn"
-                            onclick="viewRoom('Deluxe Room')">
-
-                            View Room
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- EXECUTIVE ROOM -->
-
-            <div class="room-card">
-
-                <img
-                    src="images/executive.jpg"
-                    alt="Executive Room">
-
-                <div class="room-content">
-
-                    <h3>
-                        Executive Room
-                    </h3>
-
-                    <p>
-                        Elegant room designed for
-                        business and premium travellers.
-                    </p>
-
-                    <div class="room-info">
-
-                        <div class="price">
-                            ₹5,000
-                            <span>/ night</span>
-                        </div>
-
-                        <button
-                            class="view-btn"
-                            onclick="viewRoom('Executive Room')">
-
-                            View Room
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- LUXURY SUITE -->
-
-            <div class="room-card">
-
-                <img
-                    src="images/suite.jpg"
-                    alt="Luxury Suite">
-
-                <div class="room-content">
-
-                    <h3>
-                        Luxury Suite
-                    </h3>
-
-                    <p>
-                        Premium suite with spacious
-                        interiors and luxury amenities.
-                    </p>
-
-                    <div class="room-info">
-
-                        <div class="price">
-                            ₹7,500
-                            <span>/ night</span>
-                        </div>
-
-                        <button
-                            class="view-btn"
-                            onclick="viewRoom('Luxury Suite')">
-
-                            View Room
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FEATURES -->
-
-    <section
-        class="section"
-        id="features">
-
-        <div class="section-heading">
-
-            <h2>
-                Why Choose Grand Stay?
-            </h2>
-
-        </div>
-
-
-        <div class="features">
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🛏️
-                </div>
-
-                <h3>
-                    Comfortable Rooms
-                </h3>
+                <h3>Single Room</h3>
 
                 <p>
-                    Enjoy clean, spacious and
-                    comfortable rooms.
+                    Comfortable room designed for
+                    solo travellers.
                 </p>
 
-            </div>
+                <div class="room-info">
 
+                    <span class="price">
+                        ₹2,000 / night
+                    </span>
 
-            <div class="feature">
+                    <button
+                        class="view-btn"
+                        onclick="viewRooms('Single Room')">
+                        View Rooms
+                    </button>
 
-                <div class="feature-icon">
-                    ⚡
                 </div>
 
-                <h3>
-                    Easy Booking
-                </h3>
-
-                <p>
-                    Search and book your room
-                    quickly and easily.
-                </p>
-
             </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    ⭐
-                </div>
-
-                <h3>
-                    Best Experience
-                </h3>
-
-                <p>
-                    We provide quality service
-                    for a memorable stay.
-                </p>
-
-            </div>
-
         </div>
 
-    </section>
+
+        <!-- DOUBLE -->
+        <div class="room-card">
+
+            <img src="images/double.jpg" alt="Double Room">
+
+            <div class="room-content">
+
+                <h3>Double Room</h3>
+
+                <p>
+                    Spacious room with a comfortable
+                    double bed.
+                </p>
+
+                <div class="room-info">
+
+                    <span class="price">
+                        ₹2,800 / night
+                    </span>
+
+                    <button
+                        class="view-btn"
+                        onclick="viewRooms('Double Room')">
+                        View Rooms
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
 
 
-    <!-- FOOTER -->
+        <!-- DELUXE -->
+        <div class="room-card">
 
-    <footer>
+            <img src="images/deluxe.jpg" alt="Deluxe Room">
 
-        <p>
-            © 2026 Grand Stay Hotel.
-            All Rights Reserved.
-        </p>
+            <div class="room-content">
 
-    </footer>
+                <h3>Deluxe Room</h3>
 
+                <p>
+                    Elegant room with premium
+                    facilities and comfort.
+                </p>
 
-    <script>
+                <div class="room-info">
 
-        function searchRooms() {
+                    <span class="price">
+                        ₹3,500 / night
+                    </span>
 
-            const destination =
-                document
-                .getElementById("destination")
-                .value
-                .trim();
+                    <button
+                        class="view-btn"
+                        onclick="viewRooms('Deluxe Room')">
+                        View Rooms
+                    </button>
 
-            const checkin =
-                document
-                .getElementById("checkin")
-                .value;
+                </div>
 
-            const checkout =
-                document
-                .getElementById("checkout")
-                .value;
-
-            const guests =
-                document
-                .getElementById("guests")
-                .value;
+            </div>
+        </div>
 
 
-            if (destination === "") {
+        <!-- FAMILY -->
+        <div class="room-card">
 
-                alert(
-                    "Please enter your destination."
-                );
+            <img src="images/family.jpg" alt="Family Room">
 
-                return;
-            }
+            <div class="room-content">
 
+                <h3>Family Room</h3>
 
-            if (checkin === "") {
+                <p>
+                    Spacious accommodation for
+                    families and small groups.
+                </p>
 
-                alert(
-                    "Please select check-in date."
-                );
+                <div class="room-info">
 
-                return;
-            }
+                    <span class="price">
+                        ₹4,500 / night
+                    </span>
 
+                    <button
+                        class="view-btn"
+                        onclick="viewRooms('Family Room')">
+                        View Rooms
+                    </button>
 
-            if (checkout === "") {
+                </div>
 
-                alert(
-                    "Please select check-out date."
-                );
-
-                return;
-            }
-
-
-            if (guests === "") {
-
-                alert(
-                    "Please select number of guests."
-                );
-
-                return;
-            }
+            </div>
+        </div>
 
 
-            /*
-                Same date is ACCEPTED.
+        <!-- SUITE -->
+        <div class="room-card">
 
-                Only checkout before checkin
-                will be rejected.
-            */
+            <img src="images/suite.jpg" alt="Suite Room">
 
-            if (checkout < checkin) {
+            <div class="room-content">
 
-                alert(
-                    "Check-out date cannot be before check-in date."
-                );
+                <h3>Suite Room</h3>
 
-                return;
-            }
+                <p>
+                    Luxurious suite with premium
+                    amenities and extra space.
+                </p>
 
+                <div class="room-info">
 
-            // Save search details
+                    <span class="price">
+                        ₹7,500 / night
+                    </span>
 
-            localStorage.setItem(
-                "searchDetails",
+                    <button
+                        class="view-btn"
+                        onclick="viewRooms('Suite Room')">
+                        View Rooms
+                    </button>
 
-                JSON.stringify({
+                </div>
 
-                    destination: destination,
+            </div>
+        </div>
 
-                    checkin: checkin,
+    </div>
 
-                    checkout: checkout,
-
-                    guests: guests
-
-                })
-            );
-
-
-            // Go to Booking page
-
-            window.location.href =
-                "booking.html";
-        }
+</section>
 
 
-        function viewRoom(roomName) {
+<!-- FEATURES -->
+<section class="section features">
 
-            localStorage.setItem(
-                "selectedRoom",
-                roomName
-            );
+    <div class="title">
+        <h2>Why Choose Grand Stay?</h2>
+        <p>Everything you need for a comfortable stay.</p>
+    </div>
 
-            window.location.href =
-                "booking.html";
-        }
+    <div class="feature-grid">
 
-    </script>
+        <div class="feature">
+            <div class="feature-icon">🏨</div>
+            <h3>Comfortable Rooms</h3>
+            <p>Clean and comfortable rooms.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <h3>Secure Stay</h3>
+            <p>Your comfort and security are our priority.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">💳</div>
+            <h3>Easy Payment</h3>
+            <p>Simple and convenient payment options.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⭐</div>
+            <h3>Quality Service</h3>
+            <p>Enjoy professional hospitality.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <h3>GRAND STAY</h3>
+
+    <p>Hotel Booking Management System</p>
+
+    <p>
+        Comfortable Stay • Quality Service • Happy Guests
+    </p>
+
+</footer>
+
+
+<script>
+
+// Set today's date
+
+const today = new Date().toISOString().split("T")[0];
+
+document.getElementById("checkin").min = today;
+document.getElementById("checkout").min = today;
+
+
+// Change checkout minimum date
+
+document.getElementById("checkin").addEventListener(
+    "change",
+    function(){
+        document.getElementById("checkout").min = this.value;
+    }
+);
+
+
+// Search Rooms
+
+function searchRooms(){
+
+    const checkin =
+        document.getElementById("checkin").value;
+
+    const checkout =
+        document.getElementById("checkout").value;
+
+    const guests =
+        document.getElementById("guests").value;
+
+    const rooms =
+        document.getElementById("rooms").value;
+
+
+    if(checkin === ""){
+        alert("Please select check-in date.");
+        return;
+    }
+
+
+    if(checkout === ""){
+        alert("Please select check-out date.");
+        return;
+    }
+
+
+    if(checkout <= checkin){
+        alert("Check-out date must be after check-in date.");
+        return;
+    }
+
+
+    const searchDetails = {
+
+        checkin: checkin,
+        checkout: checkout,
+        guests: guests,
+        rooms: rooms
+
+    };
+
+
+    localStorage.setItem(
+        "searchDetails",
+        JSON.stringify(searchDetails)
+    );
+
+
+    window.location.href = "booking.html";
+}
+
+
+// View Rooms
+
+function viewRooms(roomType){
+
+    localStorage.setItem(
+        "selectedCategory",
+        roomType
+    );
+
+    window.location.href = "booking.html";
+}
+
+</script>
 
 </body>
 </html>

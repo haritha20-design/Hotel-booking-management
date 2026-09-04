@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Booking Review - Grand Stay</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Review | GRAND STAY</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -15,401 +19,456 @@
         }
 
         body {
-            background: #f4f8fc;
-            color: #172b4d;
+            background: #f5f7fb;
+            color: #222;
         }
 
         /* NAVBAR */
 
-        nav {
+        .navbar {
             height: 70px;
             background: white;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 7%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .logo {
+        .logo-area {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 21px;
-            font-weight: bold;
-            color: #0b5ed7;
+            gap: 12px;
         }
 
-        .logo img {
-            width: 42px;
-            height: 42px;
+        .logo-area img {
+            width: 45px;
+            height: 45px;
             object-fit: contain;
         }
 
-        .back-btn {
-            text-decoration: none;
-            color: #0b5ed7;
+        .hotel-name {
+            font-size: 21px;
             font-weight: bold;
+            color: #173f7a;
         }
 
-        /* CONTAINER */
-
-        .container {
-            width: 90%;
-            max-width: 1050px;
-            margin: 40px auto;
+        .hotel-name span {
+            color: #c79a3b;
         }
 
-        .page-title {
-            margin-bottom: 25px;
+        .nav-links {
+            display: flex;
+            gap: 28px;
         }
 
-        .page-title h1 {
-            font-size: 30px;
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #173f7a;
+        }
+
+
+        /* HEADER */
+
+        .page-header {
+            background: linear-gradient(135deg, #173f7a, #285fa5);
+            color: white;
+            text-align: center;
+            padding: 38px 20px;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
             margin-bottom: 8px;
         }
 
-        .page-title p {
-            color: #6b7c93;
+        .page-header p {
+            opacity: 0.9;
         }
 
-        /* MAIN GRID */
 
-        .content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
+        /* PROGRESS */
+
+        .progress-box {
+            max-width: 900px;
+            margin: 30px auto 10px;
+            padding: 0 20px;
         }
+
+        .progress {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .progress::before {
+            content: "";
+            position: absolute;
+            top: 18px;
+            left: 8%;
+            right: 8%;
+            height: 3px;
+            background: #d9dee8;
+            z-index: 0;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            width: 25%;
+        }
+
+        .circle {
+            width: 36px;
+            height: 36px;
+            margin: auto;
+            border-radius: 50%;
+            background: #d9dee8;
+            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 3px solid #f5f7fb;
+        }
+
+        .step.active .circle {
+            background: #173f7a;
+            color: white;
+        }
+
+        .step p {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .step.active p {
+            color: #173f7a;
+            font-weight: bold;
+        }
+
+
+        /* MAIN CONTAINER */
+
+        .container {
+            max-width: 1100px;
+            margin: 25px auto 50px;
+            padding: 0 20px;
+        }
+
+
+        /* CARD */
 
         .card {
             background: white;
+            border-radius: 14px;
             padding: 28px;
-            border-radius: 16px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            margin-bottom: 22px;
         }
 
-        .card h2 {
+        .card-title {
             font-size: 21px;
-            margin-bottom: 20px;
+            color: #173f7a;
+            margin-bottom: 6px;
         }
 
-        /* ROOM */
+        .card-subtitle {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
 
-        .room-image {
-            width: 100%;
-            height: 210px;
+
+        /* ROOM SECTION */
+
+        .room-info {
+            display: grid;
+            grid-template-columns: 230px 1fr;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .room-info img {
+            width: 230px;
+            height: 160px;
             object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 15px;
+            border-radius: 10px;
         }
 
         .room-name {
-            font-size: 23px;
+            font-size: 24px;
             font-weight: bold;
-            margin-bottom: 8px;
+            color: #173f7a;
+            margin-bottom: 7px;
         }
 
-        .room-price {
-            color: #0b5ed7;
-            font-size: 18px;
-            font-weight: bold;
+        .room-number {
+            color: #777;
+            margin-bottom: 15px;
         }
 
-        /* DETAILS */
-
-        .details {
-            margin-top: 20px;
-            border-top: 1px solid #e1e6ec;
-        }
-
-        .detail-row {
+        .room-features {
             display: flex;
-            justify-content: space-between;
-            padding: 13px 0;
-            border-bottom: 1px solid #e1e6ec;
-            gap: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .detail-row span {
-            color: #68788d;
+        .feature {
+            background: #f1f5fb;
+            padding: 7px 11px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #444;
         }
 
-        .detail-row strong {
-            text-align: right;
-            color: #172b4d;
+
+        /* DETAILS GRID */
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
         }
 
-        /* TOTAL */
-
-        .total {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-            padding-top: 18px;
-            border-top: 2px solid #dce3eb;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .total-price {
-            color: #0b5ed7;
-        }
-
-        /* BUTTON */
-
-        .payment-btn {
-            width: 100%;
-            margin-top: 25px;
-            padding: 15px;
-            border: none;
+        .detail-box {
+            background: #f8f9fc;
             border-radius: 9px;
-            background: #0b5ed7;
-            color: white;
-            font-size: 16px;
+            padding: 15px;
+        }
+
+        .detail-box .label {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .detail-box .value {
+            color: #222;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+
+        /* PRICE */
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 13px 0;
+            font-size: 15px;
+        }
+
+        .price-row span:first-child {
+            color: #666;
+        }
+
+        .divider {
+            height: 1px;
+            background: #e4e7ec;
+            margin: 18px 0;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 21px;
+            font-weight: bold;
+            color: #173f7a;
+        }
+
+
+        /* BUTTONS */
+
+        .button-area {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .back-btn,
+        .continue-btn {
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-size: 15px;
             font-weight: bold;
             cursor: pointer;
         }
 
-        .payment-btn:hover {
-            background: #084298;
+        .back-btn {
+            background: white;
+            color: #173f7a;
+            border: 1px solid #173f7a;
         }
 
-        .secure {
+        .continue-btn {
+            background: #173f7a;
+            color: white;
+            border: none;
+        }
+
+        .back-btn:hover {
+            background: #f1f5fb;
+        }
+
+        .continue-btn:hover {
+            background: #0f315f;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #173f7a;
+            color: white;
             text-align: center;
-            margin-top: 12px;
+            padding: 22px;
             font-size: 13px;
-            color: #718096;
         }
 
-        /* MOBILE */
 
-        @media (max-width: 768px) {
+        /* RESPONSIVE */
 
-            nav {
-                padding: 0 5%;
+        @media (max-width: 700px) {
+
+            .navbar {
+                padding: 0 4%;
             }
 
-            .container {
-                width: 92%;
-                margin: 25px auto;
+            .nav-links {
+                gap: 12px;
             }
 
-            .content {
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .room-info {
                 grid-template-columns: 1fr;
             }
 
-            .page-title h1 {
-                font-size: 25px;
+            .room-info img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-area {
+                flex-direction: column;
+            }
+
+            .back-btn,
+            .continue-btn {
+                width: 100%;
+            }
+
+            .step p {
+                font-size: 10px;
             }
         }
-    </style>
-</head>
 
+    </style>
+
+</head>
 <body>
 
     <!-- NAVBAR -->
 
-    <nav>
+    <nav class="navbar">
 
-        <div class="logo">
+        <div class="logo-area">
+
             <img src="images/logo.png" alt="Grand Stay Logo">
-            GRAND STAY
+
+            <div class="hotel-name">
+                GRAND <span>STAY</span>
+            </div>
+
         </div>
 
-        <a href="guestdetails.html" class="back-btn">
-            ← Back
-        </a>
+
+        <div class="nav-links">
+
+            <a href="home.html">Home</a>
+            <a href="booking.html">Rooms</a>
+            <a href="bookinghistory.html">History</a>
+            <a href="contact.html">Contact</a>
+            <a href="logout.html">Logout</a>
+
+        </div>
 
     </nav>
 
 
-    <!-- MAIN -->
 
-    <div class="container">
+    <!-- PAGE HEADER -->
 
-        <div class="page-title">
+    <section class="page-header">
 
-            <h1>Review Your Booking</h1>
+        <h1>Review Your Booking</h1>
 
-            <p>
-                Please check your booking details before continuing to payment.
-            </p>
+        <p>
+            Please check your booking details before continuing
+        </p>
 
-        </div>
-
-
-        <div class="content">
+    </section>
 
 
-            <!-- ROOM DETAILS -->
 
-            <div class="card">
+    <!-- PROGRESS -->
 
-                <h2>Selected Room</h2>
+    <div class="progress-box">
 
-                <img
-                    id="roomImage"
-                    class="room-image"
-                    src="images/deluxe.jpg"
-                    alt="Selected Room"
-                >
+        <div class="progress">
 
-                <div
-                    id="roomName"
-                    class="room-name">
-                    -
-                </div>
+            <div class="step active">
 
-                <div
-                    id="roomPrice"
-                    class="room-price">
-                    ₹0 / night
-                </div>
+                <div class="circle">1</div>
 
-
-                <div class="details">
-
-                    <div class="detail-row">
-
-                        <span>📍 Destination</span>
-
-                        <strong id="destination">
-                            -
-                        </strong>
-
-                    </div>
-
-
-                    <div class="detail-row">
-
-                        <span>📅 Check-in</span>
-
-                        <strong id="checkin">
-                            -
-                        </strong>
-
-                    </div>
-
-
-                    <div class="detail-row">
-
-                        <span>📅 Check-out</span>
-
-                        <strong id="checkout">
-                            -
-                        </strong>
-
-                    </div>
-
-
-                    <div class="detail-row">
-
-                        <span>👥 Guests</span>
-
-                        <strong id="guests">
-                            -
-                        </strong>
-
-                    </div>
-
-                </div>
+                <p>Room</p>
 
             </div>
 
 
-            <!-- GUEST DETAILS -->
+            <div class="step active">
 
-            <div class="card">
+                <div class="circle">2</div>
 
-                <h2>Guest Information</h2>
+                <p>Guest Details</p>
 
-
-                <div class="details">
-
-                    <div class="detail-row">
-
-                        <span>👤 Full Name</span>
-
-                        <strong id="fullName">
-                            -
-                        </strong>
-
-                    </div>
+            </div>
 
 
-                    <div class="detail-row">
+            <div class="step active">
 
-                        <span>📧 Email</span>
+                <div class="circle">3</div>
 
-                        <strong id="email">
-                            -
-                        </strong>
+                <p>Review</p>
 
-                    </div>
+            </div>
 
 
-                    <div class="detail-row">
+            <div class="step">
 
-                        <span>📱 Phone</span>
+                <div class="circle">4</div>
 
-                        <strong id="phone">
-                            -
-                        </strong>
-
-                    </div>
-
-
-                    <div class="detail-row">
-
-                        <span>👥 Number of Guests</span>
-
-                        <strong id="guestCount">
-                            -
-                        </strong>
-
-                    </div>
-
-
-                    <div class="detail-row">
-
-                        <span>📝 Special Request</span>
-
-                        <strong id="specialRequest">
-                            None
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <!-- TOTAL -->
-
-                <div class="total">
-
-                    <span>Total Amount</span>
-
-                    <span
-                        id="totalPrice"
-                        class="total-price">
-                        ₹0
-                    </span>
-
-                </div>
-
-
-                <button
-                    class="payment-btn"
-                    onclick="continuePayment()">
-
-                    Continue to Payment →
-
-                </button>
-
-
-                <p class="secure">
-                    🔒 Secure booking • Your information is protected
-                </p>
+                <p>Payment</p>
 
             </div>
 
@@ -418,14 +477,452 @@
     </div>
 
 
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+
+        <!-- ROOM DETAILS -->
+
+        <div class="card">
+
+            <h2 class="card-title">
+                Selected Room
+            </h2>
+
+            <p class="card-subtitle">
+                Your selected room and accommodation details
+            </p>
+
+
+            <div class="room-info">
+
+
+                <img
+                    id="roomImage"
+                    src="images/room.jpg"
+                    alt="Selected Room"
+                >
+
+
+                <div>
+
+                    <div
+                        class="room-name"
+                        id="roomType">
+                        Room
+                    </div>
+
+
+                    <div
+                        class="room-number"
+                        id="roomNumber">
+                        Room Number
+                    </div>
+
+
+                    <div class="room-features">
+
+                        <div class="feature">
+                            🛏 <span id="bedType">Bed</span>
+                        </div>
+
+                        <div class="feature">
+                            👥 <span id="maxGuests">Guests</span>
+                        </div>
+
+                        <div class="feature">
+                            ⭐ <span id="rating">Rating</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STAY DETAILS -->
+
+        <div class="card">
+
+            <h2 class="card-title">
+                Stay Details
+            </h2>
+
+            <p class="card-subtitle">
+                Your reservation information
+            </p>
+
+
+            <div class="details-grid">
+
+
+                <div class="detail-box">
+
+                    <div class="label">
+                        Check-in
+                    </div>
+
+                    <div
+                        class="value"
+                        id="checkin">
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <div class="label">
+                        Check-out
+                    </div>
+
+                    <div
+                        class="value"
+                        id="checkout">
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <div class="label">
+                        Number of Guests
+                    </div>
+
+                    <div
+                        class="value"
+                        id="guests">
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <div class="label">
+                        Number of Rooms
+                    </div>
+
+                    <div
+                        class="value"
+                        id="rooms">
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <div class="label">
+                        Number of Nights
+                    </div>
+
+                    <div
+                        class="value"
+                        id="nights">
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <div class="label">
+                        Price per Night
+                    </div>
+
+                    <div
+                        class="value"
+                        id="pricePerNight">
+                        ₹0
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- GUEST INFORMATION -->
+
+        <div class="card">
+
+            <h2 class="card-title">
+                Guest Information
+            </h2>
+
+            <p class="card-subtitle">
+                Primary guest details
+            </p>
+
+
+            <div class="details-grid">
+
+
+                <div class="detail-box">
+
+                    <div class="label">
+                        Full Name
+                    </div>
+
+                    <div
+                        class="value"
+                        id="guestName">
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <div class="label">
+                        Phone Number
+                    </div>
+
+                    <div
+                        class="value"
+                        id="guestPhone">
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <div class="label">
+                        Email Address
+                    </div>
+
+                    <div
+                        class="value"
+                        id="guestEmail">
+                        -
+                    </div>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <div class="label">
+                        City
+                    </div>
+
+                    <div
+                        class="value"
+                        id="guestCity">
+                        -
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SPECIAL REQUESTS -->
+
+        <div class="card">
+
+            <h2 class="card-title">
+                Special Requests
+            </h2>
+
+            <p class="card-subtitle">
+                Additional services selected for your stay
+            </p>
+
+
+            <div
+                class="detail-box"
+                id="specialRequests">
+
+                No special requests selected.
+
+            </div>
+
+
+            <div
+                class="detail-box"
+                style="margin-top:12px;">
+
+                <div class="label">
+                    Other Request
+                </div>
+
+                <div
+                    class="value"
+                    id="otherRequest">
+
+                    None
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRICE SUMMARY -->
+
+        <div class="card">
+
+            <h2 class="card-title">
+                Price Summary
+            </h2>
+
+            <p class="card-subtitle">
+                Complete booking cost
+            </p>
+
+
+            <div class="price-row">
+
+                <span>
+                    Room Price
+                </span>
+
+                <span id="price">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <div class="price-row">
+
+                <span>
+                    Number of Rooms
+                </span>
+
+                <span id="roomCount">
+                    0
+                </span>
+
+            </div>
+
+
+            <div class="price-row">
+
+                <span>
+                    Number of Nights
+                </span>
+
+                <span id="nightCount">
+                    0
+                </span>
+
+            </div>
+
+
+            <div class="divider"></div>
+
+
+            <div class="price-row">
+
+                <span>
+                    Room Charge
+                </span>
+
+                <span id="roomCharge">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <div class="price-row">
+
+                <span>
+                    Special Requests
+                </span>
+
+                <span id="specialCharge">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <div class="divider"></div>
+
+
+            <div class="total-row">
+
+                <span>
+                    Total Amount
+                </span>
+
+                <span id="totalAmount">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="button-area">
+
+                <button
+                    class="back-btn"
+                    onclick="goBack()">
+
+                    ← Back to Guest Details
+
+                </button>
+
+
+                <button
+                    class="continue-btn"
+                    onclick="continueToPayment()">
+
+                    Continue to Payment →
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 GRAND STAY Hotel Booking Management System
+
+    </footer>
     <script>
 
-        // ==================================
         // GET SAVED DATA
-        // ==================================
 
-        const bookingData =
-            JSON.parse(localStorage.getItem("bookingData"));
+        const selectedRoom =
+            JSON.parse(localStorage.getItem("selectedRoom"));
 
         const searchDetails =
             JSON.parse(localStorage.getItem("searchDetails"));
@@ -433,123 +930,209 @@
         const guestDetails =
             JSON.parse(localStorage.getItem("guestDetails"));
 
-
-        // ==================================
-        // DISPLAY ROOM DETAILS
-        // ==================================
-
-        if (bookingData) {
-
-            document.getElementById("roomName").textContent =
-                bookingData.roomName;
+        const bookingCost =
+            JSON.parse(localStorage.getItem("bookingCost"));
 
 
-            document.getElementById("roomPrice").textContent =
-                "₹" +
-                Number(bookingData.price).toLocaleString() +
-                " / night";
+        // CHECK DATA
 
+        if (!selectedRoom || !searchDetails || !guestDetails || !bookingCost) {
 
-            document.getElementById("totalPrice").textContent =
-                "₹" +
-                Number(bookingData.price).toLocaleString();
+            alert("Booking details are not available.");
 
-
-            // Selected room image
-
-            const roomImage =
-                document.getElementById("roomImage");
-
-
-            if (bookingData.roomName === "Deluxe Room") {
-
-                roomImage.src =
-                    "images/deluxe.jpg";
-
-            }
-
-            else if (bookingData.roomName === "Executive Room") {
-
-                roomImage.src =
-                    "images/executive.jpg";
-
-            }
-
-            else if (bookingData.roomName === "Luxury Suite") {
-
-                roomImage.src =
-                    "images/suite.jpg";
-
-            }
+            window.location.href = "booking.html";
 
         }
 
 
-        // ==================================
-        // DISPLAY SEARCH DETAILS
-        // ==================================
+        // ROOM DETAILS
 
-        if (searchDetails) {
+        document.getElementById("roomImage").src =
+            selectedRoom.image;
 
-            document.getElementById("destination").textContent =
-                searchDetails.destination || "-";
+        document.getElementById("roomType").textContent =
+            selectedRoom.type + " Room";
+
+        document.getElementById("roomNumber").textContent =
+            "Room " + selectedRoom.roomNumber;
+
+        document.getElementById("bedType").textContent =
+            selectedRoom.bed;
+
+        document.getElementById("maxGuests").textContent =
+            selectedRoom.guests + " Guests";
+
+        document.getElementById("rating").textContent =
+            selectedRoom.rating;
 
 
-            document.getElementById("checkin").textContent =
-                searchDetails.checkin || "-";
+        // STAY DETAILS
+
+        document.getElementById("checkin").textContent =
+            searchDetails.checkin;
+
+        document.getElementById("checkout").textContent =
+            searchDetails.checkout;
+
+        document.getElementById("guests").textContent =
+            searchDetails.guests + " Guest(s)";
+
+        document.getElementById("rooms").textContent =
+            bookingCost.numberOfRooms + " Room(s)";
+
+        document.getElementById("nights").textContent =
+            bookingCost.numberOfNights + " Night(s)";
+
+        document.getElementById("pricePerNight").textContent =
+            "₹" +
+            Number(bookingCost.roomPrice)
+                .toLocaleString("en-IN");
 
 
-            document.getElementById("checkout").textContent =
-                searchDetails.checkout || "-";
+        // GUEST INFORMATION
+
+        document.getElementById("guestName").textContent =
+            guestDetails.fullName;
+
+        document.getElementById("guestPhone").textContent =
+            guestDetails.phone;
+
+        document.getElementById("guestEmail").textContent =
+            guestDetails.email;
+
+        document.getElementById("guestCity").textContent =
+            guestDetails.city;
 
 
-            document.getElementById("guests").textContent =
-                searchDetails.guests || "-";
+        // SPECIAL REQUESTS
+
+        const specialRequestBox =
+            document.getElementById("specialRequests");
+
+
+        if (
+            guestDetails.specialRequests &&
+            guestDetails.specialRequests.length > 0
+        ) {
+
+            specialRequestBox.innerHTML = "";
+
+
+            guestDetails.specialRequests.forEach(function(request) {
+
+                const requestItem =
+                    document.createElement("div");
+
+                requestItem.style.display = "flex";
+                requestItem.style.justifyContent = "space-between";
+                requestItem.style.marginBottom = "8px";
+
+
+                requestItem.innerHTML = `
+
+                    <span>✓ ${request.name}</span>
+
+                    <strong>
+                        ₹${Number(request.price)
+                            .toLocaleString("en-IN")}
+                    </strong>
+
+                `;
+
+
+                specialRequestBox.appendChild(requestItem);
+
+            });
 
         }
 
 
-        // ==================================
-        // DISPLAY GUEST DETAILS
-        // ==================================
+        // OTHER REQUEST
 
-        if (guestDetails) {
+        if (guestDetails.otherRequest) {
 
-            document.getElementById("fullName").textContent =
-                guestDetails.fullName || "-";
+            document.getElementById("otherRequest").textContent =
+                guestDetails.otherRequest;
 
+        }
+        else {
 
-            document.getElementById("email").textContent =
-                guestDetails.email || "-";
-
-
-            document.getElementById("phone").textContent =
-                guestDetails.phone || "-";
-
-
-            document.getElementById("guestCount").textContent =
-                guestDetails.guests || "-";
-
-
-            document.getElementById("specialRequest").textContent =
-                guestDetails.specialRequest || "None";
+            document.getElementById("otherRequest").textContent =
+                "None";
 
         }
 
 
-        // ==================================
+        // PRICE DETAILS
+
+        document.getElementById("price").textContent =
+            "₹" +
+            Number(bookingCost.roomPrice)
+                .toLocaleString("en-IN");
+
+
+        document.getElementById("roomCount").textContent =
+            bookingCost.numberOfRooms;
+
+
+        document.getElementById("nightCount").textContent =
+            bookingCost.numberOfNights;
+
+
+        document.getElementById("roomCharge").textContent =
+            "₹" +
+            Number(bookingCost.roomCharge)
+                .toLocaleString("en-IN");
+
+
+        document.getElementById("specialCharge").textContent =
+            "₹" +
+            Number(bookingCost.specialCharge)
+                .toLocaleString("en-IN");
+
+
+        document.getElementById("totalAmount").textContent =
+            "₹" +
+            Number(bookingCost.totalAmount)
+                .toLocaleString("en-IN");
+
+
+        // BACK BUTTON
+
+        function goBack() {
+
+            window.location.href =
+                "guestdetails.html";
+
+        }
+
+
         // CONTINUE TO PAYMENT
-        // ==================================
 
-        function continuePayment() {
+        function continueToPayment() {
 
-            if (!bookingData || !guestDetails) {
+            // Save final booking information
 
-                alert("Booking details are missing.");
+            const bookingData = {
 
-                return;
-            }
+                room: selectedRoom,
 
+                searchDetails: searchDetails,
+
+                guestDetails: guestDetails,
+
+                bookingCost: bookingCost
+
+            };
+
+
+            localStorage.setItem(
+                "bookingData",
+                JSON.stringify(bookingData)
+            );
+
+
+            // Go to payment page
 
             window.location.href =
                 "payment.html";
@@ -557,6 +1140,7 @@
         }
 
     </script>
+
 
 </body>
 </html>
